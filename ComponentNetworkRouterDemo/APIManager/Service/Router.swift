@@ -1,81 +1,55 @@
 //
 //  Router.swift
-//  TestProject
+//  ComponentNetworkRouterDemo
 //
-//  Created by Ike Ho on 2019/5/13.
-//  Copyright © 2019 Frank Chen. All rights reserved.
+//  Created by 黃柏叡 on 2019/9/23.
+//  Copyright © 2019 黃柏叡. All rights reserved.
 //
 
 import Foundation
 
-struct RequestQueue<T>{
-    fileprivate var requestDic = [URLRequest: T]()
-    
-    public var isEmpty: Bool {
-        return requestDic.isEmpty
-    }
-    
-    public var count: Int {
-        return requestDic.count
-    }
-    
-    public mutating func enqueue(_ request: URLRequest, _ element: T) {
-        requestDic[request] = element
-    }
-    
-    @discardableResult
-    public mutating func dequeue(_ request: URLRequest) -> T? {
-        if isEmpty {
-            return nil
-        } else {
-            let element = requestDic[request]
-            requestDic.removeValue(forKey: request)
-            return element
-        }
-    }
-}
-
-class Router: NetworkRouter, DomainChangeable {
+class Router: NetworkRouter {
     private var task: URLSessionTask?
     private var timeoutInterval = 10.0
-    weak var delegate: DomainChangeableDelegate?
     
-    func request<T: EndPointType>(_ route: T, completion: @escaping (Result<T.Response, Error>)->()) {
+    func send<T: Request>(_ request: T, decisions: [Decision]? = nil, completion: @escaping (Result<T.Response, Error>)->()) {
         let session = URLSession.shared
         do {
-            let request = try self.buildRequest(from: route)
-            NetworkLogger.log(request: request)
-            task = session.dataTask(with: request, completionHandler: { [request] data, response, error in
-                
-                if let error = error {
-                    let errRes = ErrorResponse(101, error.localizedDescription)
-                    completion(.failure(errRes))
-                    return
-                }
+            let formatRequest = try self.buildRequest(from: request)
+            APILogger.log(request: formatRequest)
+            task = session.dataTask(with: formatRequest, completionHandler: { [weak self] data, response, error in
+                guard let self = self else {return}
                 
                 guard let response = response as? HTTPURLResponse else {
-                    let errRes = ErrorResponse(101, NetworkError.missingResponse.rawValue)
+                    let errRes = APIError(APIErrorCode.missingResponse.rawValue,
+                                          APIErrorCode.missingResponse.description)
                     completion(.failure(errRes))
                     return
                 }
                 
-                if let error = self.handleHttpStatus(response) {
-                    let errRes = ErrorResponse(response.statusCode, error.localizedDescription)
+                if let error = error {
+                    let errRes = APIError(response.statusCode,
+                                          error.localizedDescription)
                     completion(.failure(errRes))
                     return
                 }
                 
                 guard let data = data else {
-                    let errRes = ErrorResponse(101, NetworkError.missingData.rawValue)
+                    let errRes = APIError(APIErrorCode.missingData.rawValue,
+                                          APIErrorCode.missingData.description)
                     completion(.failure(errRes))
                     return
                 }
 
-                completion(.success())
+                self.handleDecision(request: request,
+                                    data: data,
+                                    response: response,
+                                    decisions: decisions ?? request.decisions,
+                                    handler: completion)
             })
         } catch {
-            self.setNextDomain()
-            let errRes = ErrorResponse(101, error.localizedDescription)
+            let errRes = APIError(APIErrorCode.clientError.rawValue,
+                                  error.localizedDescription)
             completion(.failure(errRes))
         }
         self.task?.resume()
@@ -85,25 +59,8 @@ class Router: NetworkRouter, DomainChangeable {
         self.task?.cancel()
     }
     
-//    fileprivate func retryRequest(_ request: URLRequest) -> Bool {
-//        self.setNextDomain()
-//        if retryCount >= maxRetryCount {
-//            self.requestQueue.dequeue(request)
-//            retryCount = 0
-//            return false
-//        } else {
-//            retryCount += 1
-//            guard let (retryRoute, retryCompletion) = requestQueue.dequeue(request) else {
-//                retryCount = 0
-//                return false
-//            }
-//            self.request(retryRoute, completion: retryCompletion)
-//            return true
-//        }
-//    }
-    
-    fileprivate func buildRequest<T: EndPointType>(from route: T) throws -> URLRequest {
-        var request = URLRequest(url: URL(string: route.baseURL.absoluteString + "\(route.path)")!,
+    fileprivate func buildRequest<T: Request>(from route: T) throws -> URLRequest {
+        var request = URLRequest(url: URL(string: route.baseURL() + "\(route.path)")!,
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: timeoutInterval)
         
@@ -157,42 +114,33 @@ class Router: NetworkRouter, DomainChangeable {
         }
     }
     
-    fileprivate func handleHttpStatus(_ response: HTTPURLResponse) -> Error? {
-        switch response.statusCode {
-        case 200...299: return nil
-        case 400...500: return NetworkStatusError.authenticationError
-        case 501...599: return NetworkStatusError.badRequest
-        case 600:       return NetworkStatusError.outdated
-        default:        return NetworkStatusError.failed
-        }
-    }
-    
-    func handleDecision<Req: EndPointType>(
-        _ request: Req,
-        data: Data,
-        response: HTTPURLResponse,
-        decisions: [Decision],
-        handler: @escaping (Result<Req.Response, Error>) -> Void)
-    {
+    fileprivate func handleDecision<Req: Request>(request: Req, data: Data, response: HTTPURLResponse, decisions: [Decision], handler: @escaping (Result<Req.Response, Error>) -> Void) {
         guard !decisions.isEmpty else {
             fatalError("No decision left but did not reach a stop.")
         }
 
         var decisions = decisions
         let current = decisions.removeFirst()
-
+        print("\(request.path): \(current)")
         guard current.shouldApply(request: request, data: data, response: response) else {
-            handleDecision(request, data: data, response: response, decisions: decisions, handler: handler)
+            handleDecision(request: request,
+                           data: data,
+                           response: response,
+                           decisions: decisions,
+                           handler: handler)
             return
         }
 
         current.apply(request: request, data: data, response: response) { action in
             switch action {
-            case .continueWith(let data, let response):
-                self.handleDecision(
-                    request, data: data, response: response, decisions: decisions, handler: handler)
-            case .restartWith(let decisions):
-                self.send(request, decisions: decisions, handler: handler)
+            case .continueWithData(let data, let response):
+                self.handleDecision(request: request,
+                                    data: data,
+                                    response: response,
+                                    decisions: decisions,
+                                    handler: handler)
+            case .restartWith(let request):
+                self.send(request, completion: handler)
             case .errored(let error):
                 handler(.failure(error))
             case .done(let value):

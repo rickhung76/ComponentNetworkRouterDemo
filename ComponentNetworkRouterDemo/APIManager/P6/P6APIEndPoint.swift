@@ -8,12 +8,19 @@
 
 import Foundation
 
-struct GetVersionEndPoint: EndPointType {
+var domainURLs: [String] =
+["https://api.huiyouhy.com",
+"https://api.huiyouhy.com",
+"https://api.huiyouhy.com"]
+
+struct GetVersionRequest: Request {
     
-    typealias Response = Version
+    typealias Response = BaseResponse<Version>
     
-    var baseURL: URL {
-        return URL(string: "https://api.huiyouhy.com")!
+    var urlIndex: Int = 0
+
+    var baseURLs: [String] {
+        return domainURLs //APIManager.shared.domains
     }
     
     var path: String {
@@ -34,6 +41,8 @@ struct GetVersionEndPoint: EndPointType {
     var headers: HTTPHeaders? {
         return [:]
     }
+    
+    var decisions: [Decision] = Decisions.defaults
     
     let type: String
 }

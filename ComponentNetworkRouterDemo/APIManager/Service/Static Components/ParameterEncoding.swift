@@ -29,7 +29,10 @@ public struct FormBodyParameterEncoder: ParameterEncoder {
 public struct URLParameterEncoder: ParameterEncoder {
     public func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws {
         
-        guard let url = urlRequest.url else { throw NetworkError.missingURL }
+        guard let url = urlRequest.url else {
+            throw APIError(APIErrorCode.missingURL.rawValue,
+                           APIErrorCode.missingURL.description)
+        }
         
         if var urlComponents = URLComponents(url: url,
                                              resolvingAgainstBaseURL: false), !parameters.isEmpty {
@@ -60,7 +63,8 @@ public struct JSONParameterEncoder: ParameterEncoder {
                 urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
             }
         }catch {
-            throw NetworkError.encodingFailed
+            throw APIError(APIErrorCode.encodingFailed.rawValue,
+                           APIErrorCode.encodingFailed.description)
         }
     }
 }

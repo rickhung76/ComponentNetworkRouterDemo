@@ -1,5 +1,5 @@
 //
-//  NetworkLogger.swift
+//  APILogger.swift
 //  TestProject
 //
 //  Created by Ike Ho on 2019/5/13.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NetworkLogger {
+class APILogger {
     static func log(request: URLRequest) {
         
         print("\n - - - - - - - - - - OUTGOING - - - - - - - - - - \n")
