@@ -15,6 +15,7 @@ protocol Decision {
         request: Req,
         data: Data,
         response: HTTPURLResponse,
+        decisions: [Decision],
         completion: @escaping (DecisionAction<Req>) -> Void)
 }
 
@@ -24,28 +25,37 @@ extension Decision {
 
 enum DecisionAction<Req: Request> {
     case continueWithData(Data, HTTPURLResponse)
-    case restartWith(Req)
+    case restartWith(Req, [Decision])
     case errored(Error)
     case done(Req.Response)
 }
 
 extension Array where Element == Decision {
     @discardableResult
-    mutating func removing(_ item: Decision) -> Array {
-        guard let idx = self.firstIndex(where: { (decision) -> Bool in
+    func inserting(_ item: Decision, at: Int) -> Array {
+        var new = self
+        new.insert(item, at: at)
+        return new
+    }
+    
+    @discardableResult
+    func removing(_ item: Decision) -> Array {
+        var new = self
+        guard let idx = new.firstIndex(where: { (decision) -> Bool in
             return decision.description == item.description
-        }) else {return self}
-        self.remove(at: idx)
-        return self
+        }) else {return new}
+        new.remove(at: idx)
+        return new
     }
 
     @discardableResult
-    mutating func replacing(_ item: Decision, with: Decision?) -> Array {
-        guard let idx = self.firstIndex(where: { (decision) -> Bool in
+    func replacing(_ item: Decision, with: Decision?) -> Array {
+        var new = self
+        guard let idx = new.firstIndex(where: { (decision) -> Bool in
             return decision.description == item.description
-        }) else {return self}
-        self.remove(at: idx)
-        if let new = with { self.insert(new, at: idx) }
-        return self
+        }) else {return new}
+        new.remove(at: idx)
+        if let newItem = with { new.insert(newItem, at: idx) }
+        return new
     }
 }

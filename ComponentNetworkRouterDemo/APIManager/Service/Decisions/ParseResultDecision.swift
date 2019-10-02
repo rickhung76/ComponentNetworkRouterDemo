@@ -13,7 +13,7 @@ struct ParseResultDecision: Decision {
         return true
     }
 
-    func apply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse, completion: @escaping (DecisionAction<Req>) -> Void)
+    func apply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void)
     {
         do {
             let value = try JSONDecoder().decode(Req.Response.self, from: data)

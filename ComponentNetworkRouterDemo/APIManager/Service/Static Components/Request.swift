@@ -8,31 +8,42 @@
 
 import Foundation
 
-protocol Request {
+protocol Request: EndPoint, DomainChangable {
     associatedtype Response: Decodable
-    
-    var baseURLs: [String] { get }
-    var urlIndex: Int { set get }
+}
+
+extension Request {
+    var baseURL: String { return baseURL() }
+}
+
+protocol EndPoint {
+    var baseURL: String { get }
     var path: String { get }
     var httpMethod: HTTPMethod { get }
     var task: HTTPTask { get }
     var headers: HTTPHeaders? { get }
-    var decisions: [Decision] { set get }
-    
+}
+
+protocol DomainChangable {
+    var multiDomain: MultiDomain { set get }
     func baseURL() -> String
     mutating func setNextDomain()
 }
 
-extension Request {
+extension DomainChangable {
     func baseURL() -> String {
-        guard urlIndex < baseURLs.count else {
+        guard multiDomain.urlIndex < multiDomain.URLs.count else {
             fatalError("Index out of range")
         }
-        return baseURLs[urlIndex]
+        return multiDomain.URLs[multiDomain.urlIndex]
     }
     
     mutating func setNextDomain() {
-        urlIndex = (urlIndex + 1) % baseURLs.count
+        multiDomain.urlIndex = (multiDomain.urlIndex + 1) % multiDomain.URLs.count
     }
 }
 
+struct MultiDomain {
+    var URLs: [String]
+    var urlIndex: Int = 0
+}

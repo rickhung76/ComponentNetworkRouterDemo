@@ -13,7 +13,7 @@ struct BadResponseStatusCodeDecision: Decision {
         return !(200...299).contains(response.statusCode)
     }
     
-    func apply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse, completion: @escaping (DecisionAction<Req>) -> Void) {
+    func apply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
         let errCode = handleHttpStatus(response)
         let errRes = APIError(response.statusCode, errCode.description)
         completion(.errored(errRes))

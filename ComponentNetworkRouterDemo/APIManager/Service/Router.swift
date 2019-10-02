@@ -44,7 +44,7 @@ class Router: NetworkRouter {
                 self.handleDecision(request: request,
                                     data: data,
                                     response: response,
-                                    decisions: decisions ?? request.decisions,
+                                    decisions: decisions ?? Decisions.defaults,
                                     handler: completion)
             })
         } catch {
@@ -130,8 +130,8 @@ class Router: NetworkRouter {
                            handler: handler)
             return
         }
-
-        current.apply(request: request, data: data, response: response) { action in
+        print("---------- \(current) do Apply")
+        current.apply(request: request, data: data, response: response, decisions: decisions) { action in
             switch action {
             case .continueWithData(let data, let response):
                 self.handleDecision(request: request,
@@ -139,8 +139,8 @@ class Router: NetworkRouter {
                                     response: response,
                                     decisions: decisions,
                                     handler: handler)
-            case .restartWith(let request):
-                self.send(request, completion: handler)
+            case .restartWith(let request, let decisions):
+                self.send(request, decisions: decisions, completion: handler)
             case .errored(let error):
                 handler(.failure(error))
             case .done(let value):

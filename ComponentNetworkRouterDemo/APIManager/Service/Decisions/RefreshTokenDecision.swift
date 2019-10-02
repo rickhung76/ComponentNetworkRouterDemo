@@ -13,10 +13,10 @@ struct RefreshTokenDecision: Decision {
         return response.statusCode == 403
     }
     
-    func apply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse, completion: @escaping (DecisionAction<Req>) -> Void) {
-        var request = request
+    func apply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
+//        var request = request
         //refresh token sucess implement
-        request.decisions.removing(self)
-        completion(.restartWith(request))
+        let newDecisions = decisions.removing(self)
+        completion(.restartWith(request, newDecisions))
     }
 }

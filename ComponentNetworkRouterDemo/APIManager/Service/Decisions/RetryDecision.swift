@@ -16,11 +16,12 @@ struct RetryDecision: Decision {
         return !isStatusCodeValid && retryCount > 0
     }
     
-    func apply<Req>(request: Req, data: Data, response: HTTPURLResponse, completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
+    func apply<Req>(request: Req, data: Data, response: HTTPURLResponse, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
         var request = request
         request.setNextDomain()
-        let newRetryDecision = RetryDecision(retryCount: retryCount - 1)
-        request.decisions.replacing(self, with: newRetryDecision)
-        completion(.restartWith(request))
+        
+        let retryDecision = RetryDecision(retryCount: retryCount - 1)
+        let newDecisions = decisions.inserting(retryDecision, at: 0)
+        completion(.restartWith(request, newDecisions))
     }
 }
