@@ -16,14 +16,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btnPressed(_ sender: UIButton) {
-        APIManager.shared.getVersion { (result) in
-            switch result {
-            case .success(let version):
-                print(version)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        
     }
     
 }
