@@ -44,7 +44,7 @@ class Router: NetworkRouter {
                 self.handleDecision(request: request,
                                     data: data,
                                     response: response,
-                                    decisions: decisions ?? Decisions.defaults,
+                                    decisions: decisions ?? Decisions.shared.defaults,
                                     handler: completion)
             })
         } catch {

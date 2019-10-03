@@ -9,13 +9,17 @@
 import Foundation
 
 struct Decisions {
-    static var defaults: [Decision] =
+    static var shared = Decisions()
+    
+    lazy var defaults: [Decision] =
         [
             RefreshTokenDecision(),
             RetryDecision(retryCount: 3),
             BadResponseStatusCodeDecision(),
             ParseResultDecision()
         ]
+    
+    
 }
 
 

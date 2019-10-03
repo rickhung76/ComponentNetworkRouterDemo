@@ -42,11 +42,7 @@
 		2B6CB3152338C54F00770C1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B6CB3182338C54F00770C1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B6CB31A2338C54F00770C1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2B6CB3212338CF2800770C1B /* P6APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P6APIManager.swift; sourceTree = "<group>"; };
 		2B6CB3232338CF2800770C1B /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
-		2B6CB32C2338CF2800770C1B /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
-		2B6CB3302338CF2800770C1B /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
-		2B6CB3382338CF2800770C1B /* P6APIEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = P6APIEndPoint.swift; sourceTree = "<group>"; };
 		2B6CB33A2338CF2800770C1B /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		2B6CB33B2338CF2800770C1B /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
 		2B6CB33C2338CF2800770C1B /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -70,22 +66,13 @@
 		2B0B99DC2343415A00E68B7F /* Decisions */ = {
 			isa = PBXGroup;
 			children = (
+				2B6CB3602338DB4D00770C1B /* Decisions.swift */,
 				2B0B99E3234354E600E68B7F /* BadResponseStatusCodeDecision.swift */,
 				2B0B99DF2343419500E68B7F /* ParseResultDecision.swift */,
 				2B0B99E12343508400E68B7F /* RefreshTokenDecision.swift */,
 				2B0B99DD2343417F00E68B7F /* RetryDecision.swift */,
 			);
 			path = Decisions;
-			sourceTree = "<group>";
-		};
-		2B0B99E52344519600E68B7F /* P6 */ = {
-			isa = PBXGroup;
-			children = (
-				2B6CB3382338CF2800770C1B /* P6APIEndPoint.swift */,
-				2B6CB3212338CF2800770C1B /* P6APIManager.swift */,
-				2B6CB3242338CF2800770C1B /* Models */,
-			);
-			path = P6;
 			sourceTree = "<group>";
 		};
 		2B6CB3002338C54E00770C1B = {
@@ -122,7 +109,7 @@
 		2B6CB3202338CF2800770C1B /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
-				2B0B99E52344519600E68B7F /* P6 */,
+				2B0B99DC2343415A00E68B7F /* Decisions */,
 				2B6CB3392338CF2800770C1B /* Service */,
 			);
 			path = APIManager;
@@ -140,23 +127,12 @@
 			path = "Static Components";
 			sourceTree = "<group>";
 		};
-		2B6CB3242338CF2800770C1B /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				2B6CB32C2338CF2800770C1B /* BaseResponse.swift */,
-				2B6CB3302338CF2800770C1B /* Version.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		2B6CB3392338CF2800770C1B /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				2B6CB35C2338D20500770C1B /* APIError.swift */,
 				2B6CB33D2338CF2800770C1B /* APILogger.swift */,
-				2B6CB3602338DB4D00770C1B /* Decisions.swift */,
 				2B6CB33C2338CF2800770C1B /* Router.swift */,
-				2B0B99DC2343415A00E68B7F /* Decisions */,
 				2B6CB3222338CF2800770C1B /* Static Components */,
 			);
 			path = Service;
