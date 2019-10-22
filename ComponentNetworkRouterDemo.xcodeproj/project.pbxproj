@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0537A72345CC220014F83E /* ZXApiErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05379E2345CC220014F83E /* ZXApiErrorCode.swift */; };
+		2B0537A82345CC220014F83E /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05379F2345CC220014F83E /* BaseResponse.swift */; };
+		2B0537A92345CC220014F83E /* BalanceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A12345CC220014F83E /* BalanceDetail.swift */; };
+		2B0537AA2345CC220014F83E /* BalanceDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A22345CC220014F83E /* BalanceDetailRequest.swift */; };
+		2B0537AB2345CC220014F83E /* UserLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A42345CC220014F83E /* UserLoginRequest.swift */; };
+		2B0537AC2345CC220014F83E /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A52345CC220014F83E /* UserLogin.swift */; };
+		2B0537AD2345CC220014F83E /* Encodable + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A62345CC220014F83E /* Encodable + Extention.swift */; };
+		2B0537AF2345CC280014F83E /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537AE2345CC280014F83E /* ApiManager.swift */; };
 		2B0B99DB234305F300E68B7F /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99DA234305F300E68B7F /* Decision.swift */; };
 		2B0B99DE2343417F00E68B7F /* RetryDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99DD2343417F00E68B7F /* RetryDecision.swift */; };
 		2B0B99E02343419500E68B7F /* ParseResultDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99DF2343419500E68B7F /* ParseResultDecision.swift */; };
 		2B0B99E22343508400E68B7F /* RefreshTokenDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99E12343508400E68B7F /* RefreshTokenDecision.swift */; };
 		2B0B99E4234354E600E68B7F /* BadResponseStatusCodeDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99E3234354E600E68B7F /* BadResponseStatusCodeDecision.swift */; };
+		2B6A757A235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6A7579235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift */; };
 		2B6CB30D2338C54E00770C1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB30C2338C54E00770C1B /* AppDelegate.swift */; };
 		2B6CB30F2338C54E00770C1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB30E2338C54E00770C1B /* SceneDelegate.swift */; };
 		2B6CB3112338C54E00770C1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB3102338C54E00770C1B /* ViewController.swift */; };
@@ -28,12 +37,33 @@
 		2B6CB3612338DB4D00770C1B /* Decisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB3602338DB4D00770C1B /* Decisions.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2B6A757C235EF82C00E50ADE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B6CB3012338C54E00770C1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B6CB3082338C54E00770C1B;
+			remoteInfo = ComponentNetworkRouterDemo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		2B05379E2345CC220014F83E /* ZXApiErrorCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXApiErrorCode.swift; sourceTree = "<group>"; };
+		2B05379F2345CC220014F83E /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		2B0537A12345CC220014F83E /* BalanceDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceDetail.swift; sourceTree = "<group>"; };
+		2B0537A22345CC220014F83E /* BalanceDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceDetailRequest.swift; sourceTree = "<group>"; };
+		2B0537A42345CC220014F83E /* UserLoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginRequest.swift; sourceTree = "<group>"; };
+		2B0537A52345CC220014F83E /* UserLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
+		2B0537A62345CC220014F83E /* Encodable + Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable + Extention.swift"; sourceTree = "<group>"; };
+		2B0537AE2345CC280014F83E /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		2B0B99DA234305F300E68B7F /* Decision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decision.swift; sourceTree = "<group>"; };
 		2B0B99DD2343417F00E68B7F /* RetryDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryDecision.swift; sourceTree = "<group>"; };
 		2B0B99DF2343419500E68B7F /* ParseResultDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseResultDecision.swift; sourceTree = "<group>"; };
 		2B0B99E12343508400E68B7F /* RefreshTokenDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenDecision.swift; sourceTree = "<group>"; };
 		2B0B99E3234354E600E68B7F /* BadResponseStatusCodeDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadResponseStatusCodeDecision.swift; sourceTree = "<group>"; };
+		2B6A7577235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComponentNetworkRouterDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B6A7579235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentNetworkRouterDemoTests.swift; sourceTree = "<group>"; };
+		2B6A757B235EF82C00E50ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B6CB3092338C54E00770C1B /* ComponentNetworkRouterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComponentNetworkRouterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6CB30C2338C54E00770C1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B6CB30E2338C54E00770C1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +83,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2B6A7574235EF82C00E50ADE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2B6CB3062338C54E00770C1B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -63,6 +100,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B05379D2345CC220014F83E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2B05379F2345CC220014F83E /* BaseResponse.swift */,
+				2B0537A62345CC220014F83E /* Encodable + Extention.swift */,
+				2B05379E2345CC220014F83E /* ZXApiErrorCode.swift */,
+				2B0537A02345CC220014F83E /* BalanceDetail */,
+				2B0537A32345CC220014F83E /* UserLogin */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2B0537A02345CC220014F83E /* BalanceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				2B0537A12345CC220014F83E /* BalanceDetail.swift */,
+				2B0537A22345CC220014F83E /* BalanceDetailRequest.swift */,
+			);
+			path = BalanceDetail;
+			sourceTree = "<group>";
+		};
+		2B0537A32345CC220014F83E /* UserLogin */ = {
+			isa = PBXGroup;
+			children = (
+				2B0537A42345CC220014F83E /* UserLoginRequest.swift */,
+				2B0537A52345CC220014F83E /* UserLogin.swift */,
+			);
+			path = UserLogin;
+			sourceTree = "<group>";
+		};
 		2B0B99DC2343415A00E68B7F /* Decisions */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,10 +142,20 @@
 			path = Decisions;
 			sourceTree = "<group>";
 		};
+		2B6A7578235EF82C00E50ADE /* ComponentNetworkRouterDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				2B6A7579235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift */,
+				2B6A757B235EF82C00E50ADE /* Info.plist */,
+			);
+			path = ComponentNetworkRouterDemoTests;
+			sourceTree = "<group>";
+		};
 		2B6CB3002338C54E00770C1B = {
 			isa = PBXGroup;
 			children = (
 				2B6CB30B2338C54E00770C1B /* ComponentNetworkRouterDemo */,
+				2B6A7578235EF82C00E50ADE /* ComponentNetworkRouterDemoTests */,
 				2B6CB30A2338C54E00770C1B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				2B6CB3092338C54E00770C1B /* ComponentNetworkRouterDemo.app */,
+				2B6A7577235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,7 +187,9 @@
 		2B6CB3202338CF2800770C1B /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
+				2B0537AE2345CC280014F83E /* ApiManager.swift */,
 				2B0B99DC2343415A00E68B7F /* Decisions */,
+				2B05379D2345CC220014F83E /* Models */,
 				2B6CB3392338CF2800770C1B /* Service */,
 			);
 			path = APIManager;
@@ -141,6 +221,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2B6A7576235EF82C00E50ADE /* ComponentNetworkRouterDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B6A7580235EF82C00E50ADE /* Build configuration list for PBXNativeTarget "ComponentNetworkRouterDemoTests" */;
+			buildPhases = (
+				2B6A7573235EF82C00E50ADE /* Sources */,
+				2B6A7574235EF82C00E50ADE /* Frameworks */,
+				2B6A7575235EF82C00E50ADE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B6A757D235EF82C00E50ADE /* PBXTargetDependency */,
+			);
+			name = ComponentNetworkRouterDemoTests;
+			productName = ComponentNetworkRouterDemoTests;
+			productReference = 2B6A7577235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		2B6CB3082338C54E00770C1B /* ComponentNetworkRouterDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B6CB31D2338C54F00770C1B /* Build configuration list for PBXNativeTarget "ComponentNetworkRouterDemo" */;
@@ -164,10 +262,14 @@
 		2B6CB3012338C54E00770C1B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "黃柏叡";
 				TargetAttributes = {
+					2B6A7576235EF82C00E50ADE = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 2B6CB3082338C54E00770C1B;
+					};
 					2B6CB3082338C54E00770C1B = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -187,11 +289,19 @@
 			projectRoot = "";
 			targets = (
 				2B6CB3082338C54E00770C1B /* ComponentNetworkRouterDemo */,
+				2B6A7576235EF82C00E50ADE /* ComponentNetworkRouterDemoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2B6A7575235EF82C00E50ADE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2B6CB3072338C54E00770C1B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -205,30 +315,54 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2B6A7573235EF82C00E50ADE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B6A757A235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2B6CB3052338C54E00770C1B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2B6CB3592338CF2800770C1B /* APILogger.swift in Sources */,
+				2B0537A92345CC220014F83E /* BalanceDetail.swift in Sources */,
 				2B6CB3112338C54E00770C1B /* ViewController.swift in Sources */,
 				2B6CB35B2338CF2800770C1B /* Request.swift in Sources */,
+				2B0537AC2345CC220014F83E /* UserLogin.swift in Sources */,
 				2B6CB3412338CF2800770C1B /* ParameterEncoding.swift in Sources */,
 				2B0B99E4234354E600E68B7F /* BadResponseStatusCodeDecision.swift in Sources */,
+				2B0537A72345CC220014F83E /* ZXApiErrorCode.swift in Sources */,
 				2B6CB35D2338D20500770C1B /* APIError.swift in Sources */,
 				2B6CB3612338DB4D00770C1B /* Decisions.swift in Sources */,
 				2B0B99DE2343417F00E68B7F /* RetryDecision.swift in Sources */,
+				2B0537A82345CC220014F83E /* BaseResponse.swift in Sources */,
 				2B0B99DB234305F300E68B7F /* Decision.swift in Sources */,
 				2B0B99E22343508400E68B7F /* RefreshTokenDecision.swift in Sources */,
 				2B6CB3572338CF2800770C1B /* HTTPTask.swift in Sources */,
 				2B6CB30D2338C54E00770C1B /* AppDelegate.swift in Sources */,
+				2B0537AF2345CC280014F83E /* ApiManager.swift in Sources */,
 				2B6CB30F2338C54E00770C1B /* SceneDelegate.swift in Sources */,
 				2B0B99E02343419500E68B7F /* ParseResultDecision.swift in Sources */,
 				2B6CB3562338CF2800770C1B /* NetworkRouter.swift in Sources */,
+				2B0537AB2345CC220014F83E /* UserLoginRequest.swift in Sources */,
 				2B6CB3582338CF2800770C1B /* Router.swift in Sources */,
+				2B0537AD2345CC220014F83E /* Encodable + Extention.swift in Sources */,
+				2B0537AA2345CC220014F83E /* BalanceDetailRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2B6A757D235EF82C00E50ADE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B6CB3082338C54E00770C1B /* ComponentNetworkRouterDemo */;
+			targetProxy = 2B6A757C235EF82C00E50ADE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2B6CB3122338C54E00770C1B /* Main.storyboard */ = {
@@ -250,6 +384,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2B6A757E235EF82C00E50ADE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BLGFD4U72P;
+				INFOPLIST_FILE = ComponentNetworkRouterDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rk.ComponentNetworkRouterDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ComponentNetworkRouterDemo.app/ComponentNetworkRouterDemo";
+			};
+			name = Debug;
+		};
+		2B6A757F235EF82C00E50ADE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BLGFD4U72P;
+				INFOPLIST_FILE = ComponentNetworkRouterDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rk.ComponentNetworkRouterDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ComponentNetworkRouterDemo.app/ComponentNetworkRouterDemo";
+			};
+			name = Release;
+		};
 		2B6CB31B2338C54F00770C1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -403,6 +579,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2B6A7580235EF82C00E50ADE /* Build configuration list for PBXNativeTarget "ComponentNetworkRouterDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B6A757E235EF82C00E50ADE /* Debug */,
+				2B6A757F235EF82C00E50ADE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2B6CB3042338C54E00770C1B /* Build configuration list for PBXProject "ComponentNetworkRouterDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
