@@ -9,11 +9,21 @@
 import Foundation
 
 struct BadResponseStatusCodeDecision: Decision {
-    func shouldApply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse) -> Bool {
+    func shouldApply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?) -> Bool {
+        guard let response = response as? HTTPURLResponse else {
+            return true
+        }
         return !(200...299).contains(response.statusCode)
     }
     
-    func apply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
+    func apply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
+        guard let response = response as? HTTPURLResponse else {
+            let errRes = APIError(APIErrorCode.missingResponse.rawValue,
+                                  APIErrorCode.missingResponse.description)
+            completion(.errored(errRes))
+            return
+        }
+        
         let errCode = handleHttpStatus(response)
         let errRes = APIError(response.statusCode, errCode.description)
         completion(.errored(errRes))
@@ -23,7 +33,7 @@ struct BadResponseStatusCodeDecision: Decision {
         switch response.statusCode {
         case 400...499: return APIErrorCode.clientError
         case 500...599: return APIErrorCode.serverError
-        default:        return APIErrorCode.unknowError
+        default:        return APIErrorCode.unknownError
         }
     }
 }

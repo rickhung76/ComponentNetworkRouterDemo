@@ -9,11 +9,14 @@
 import Foundation
 
 struct RefreshTokenDecision: Decision {
-    func shouldApply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse) -> Bool  {
-        return response.statusCode == 403
+    func shouldApply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?) -> Bool  {
+        guard let response = response as? HTTPURLResponse else {
+            return true
+        }
+        return response.statusCode == 401
     }
     
-    func apply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
+    func apply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
 //        var request = request
         //refresh token sucess implement
         let newDecisions = decisions.removing(self)

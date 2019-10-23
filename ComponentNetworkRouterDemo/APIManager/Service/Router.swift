@@ -17,33 +17,13 @@ class Router: NetworkRouter {
         do {
             let formatRequest = try self.buildRequest(from: request)
             APILogger.log(request: formatRequest)
-            task = session.dataTask(with: formatRequest, completionHandler: { [weak self] data, response, error in
+            task = session.dataTask(with: formatRequest, completionHandler: { [weak self, decisions] data, response, error in
                 guard let self = self else {return}
-                
-                guard let response = response as? HTTPURLResponse else {
-                    let errRes = APIError(APIErrorCode.missingResponse.rawValue,
-                                          APIErrorCode.missingResponse.description)
-                    completion(.failure(errRes))
-                    return
-                }
-                
-                if let error = error {
-                    let errRes = APIError(response.statusCode,
-                                          error.localizedDescription)
-                    completion(.failure(errRes))
-                    return
-                }
-                
-                guard let data = data else {
-                    let errRes = APIError(APIErrorCode.missingData.rawValue,
-                                          APIErrorCode.missingData.description)
-                    completion(.failure(errRes))
-                    return
-                }
 
                 self.handleDecision(request: request,
                                     data: data,
                                     response: response,
+                                    error: error,
                                     decisions: decisions ?? Decisions.shared.defaults,
                                     handler: completion)
             })
@@ -60,35 +40,25 @@ class Router: NetworkRouter {
     }
     
     fileprivate func buildRequest<T: Request>(from route: T) throws -> URLRequest {
-        var request = URLRequest(url: URL(string: route.baseURL() + "\(route.path)")!,
+        var request = URLRequest(url: URL(string: route.baseURL + "\(route.path)")!,
                                  cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
                                  timeoutInterval: timeoutInterval)
         
         request.httpMethod = route.httpMethod.rawValue
         do {
-            switch route.task {
-            case .request:
+            if(route.bodyEncoding == nil) {
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            case .requestParameters(let bodyParameters,
-                                    let bodyEncoding,
-                                    let urlParameters):
-                
-                try self.configureParameters(bodyParameters: bodyParameters,
-                                             bodyEncoding: bodyEncoding,
-                                             urlParameters: urlParameters,
-                                             request: &request)
-                
-            case .requestParametersAndHeaders(let bodyParameters,
-                                              let bodyEncoding,
-                                              let urlParameters,
-                                              let additionalHeaders):
-                
-                self.addAdditionalHeaders(additionalHeaders, request: &request)
-                try self.configureParameters(bodyParameters: bodyParameters,
-                                             bodyEncoding: bodyEncoding,
-                                             urlParameters: urlParameters,
-                                             request: &request)
+            } else {
+                try self.configureParameters(bodyParameters: route.parameters,
+                bodyEncoding: route.bodyEncoding!,
+                urlParameters: route.urlParameters,
+                request: &request)
             }
+            
+            if let additionalHeaders = route.headers {
+                self.addAdditionalHeaders(additionalHeaders, request: &request)
+            }
+            
             return request
         } catch {
             throw error
@@ -114,36 +84,39 @@ class Router: NetworkRouter {
         }
     }
     
-    fileprivate func handleDecision<Req: Request>(request: Req, data: Data, response: HTTPURLResponse, decisions: [Decision], handler: @escaping (Result<Req.Response, Error>) -> Void) {
+    fileprivate func handleDecision<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?, decisions: [Decision], handler: @escaping (Result<Req.Response, Error>) -> Void) {
         guard !decisions.isEmpty else {
             fatalError("No decision left but did not reach a stop.")
         }
 
         var decisions = decisions
         let current = decisions.removeFirst()
-        print("\(request.path): \(current)")
-        guard current.shouldApply(request: request, data: data, response: response) else {
+        guard current.shouldApply(request: request, data: data, response: response, error: error) else {
             handleDecision(request: request,
                            data: data,
                            response: response,
+                           error: error,
                            decisions: decisions,
                            handler: handler)
             return
         }
-        print("---------- \(current) do Apply")
-        current.apply(request: request, data: data, response: response, decisions: decisions) { action in
+        print("Apply Decision : \(request.path) - \(current)")
+        current.apply(request: request, data: data, response: response, error: error, decisions: decisions) { action in
             switch action {
             case .continueWithData(let data, let response):
                 self.handleDecision(request: request,
                                     data: data,
                                     response: response,
+                                    error: error,
                                     decisions: decisions,
                                     handler: handler)
             case .restartWith(let request, let decisions):
                 self.send(request, decisions: decisions, completion: handler)
             case .errored(let error):
+                print("\n - - - - - - - Decision Handler END with failure - - - - - - - - \n")
                 handler(.failure(error))
             case .done(let value):
+                print("\n - - - - - - - Decision Handler END with success - - - - - - - - \n")
                 handler(.success(value))
             }
         }

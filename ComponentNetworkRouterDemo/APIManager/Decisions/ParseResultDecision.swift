@@ -9,12 +9,18 @@
 import Foundation
 
 struct ParseResultDecision: Decision {
-    func shouldApply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse) -> Bool {
+    func shouldApply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?) -> Bool {
         return true
     }
 
-    func apply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void)
-    {
+    func apply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
+        guard let data = data else {
+            let errRes = APIError(APIErrorCode.missingData.rawValue,
+                                  APIErrorCode.missingData.description)
+            completion(.errored(errRes))
+            return
+        }
+        
         do {
             let value = try JSONDecoder().decode(Req.Response.self, from: data)
             completion(.done(value))

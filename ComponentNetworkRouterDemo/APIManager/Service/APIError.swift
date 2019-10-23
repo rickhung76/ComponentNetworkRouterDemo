@@ -19,7 +19,7 @@ public enum APIErrorCode: Int {
     case unableToDecode = 42200
     case clientError = 49900
     case serverError = 50000
-    case unknowError = 77777
+    case unknownError = 77777
     
     var description: String {
         switch self {
@@ -43,7 +43,7 @@ public enum APIErrorCode: Int {
             return "Client Error"
         case .serverError:
             return "Server Error"
-        case .unknowError:
+        case .unknownError:
             return "Unknow Error"
         }
     }

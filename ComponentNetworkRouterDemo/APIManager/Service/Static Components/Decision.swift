@@ -10,11 +10,12 @@ import Foundation
 
 protocol Decision {
     var description: String {get}
-    func shouldApply<Req: Request>(request: Req, data: Data, response: HTTPURLResponse) -> Bool
+    func shouldApply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?) -> Bool
     func apply<Req: Request>(
         request: Req,
-        data: Data,
-        response: HTTPURLResponse,
+        data: Data?,
+        response: URLResponse?,
+        error: Error?,
         decisions: [Decision],
         completion: @escaping (DecisionAction<Req>) -> Void)
 }

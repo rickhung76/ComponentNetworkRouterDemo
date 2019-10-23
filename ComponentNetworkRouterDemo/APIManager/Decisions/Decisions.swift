@@ -13,13 +13,18 @@ struct Decisions {
     
     lazy var defaults: [Decision] =
         [
-            RefreshTokenDecision(),
             RetryDecision(retryCount: 3),
+            RefreshTokenDecision(),
             BadResponseStatusCodeDecision(),
             ParseResultDecision()
         ]
     
-    
+    lazy var refreshToken: [Decision] =
+        [
+            RetryDecision(retryCount: 3),
+            BadResponseStatusCodeDecision(),
+            ParseResultDecision()
+        ]
 }
 
 
