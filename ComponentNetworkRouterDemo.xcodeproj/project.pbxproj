@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B0537A72345CC220014F83E /* ZXApiErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05379E2345CC220014F83E /* ZXApiErrorCode.swift */; };
-		2B0537A82345CC220014F83E /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05379F2345CC220014F83E /* BaseResponse.swift */; };
-		2B0537A92345CC220014F83E /* BalanceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A12345CC220014F83E /* BalanceDetail.swift */; };
-		2B0537AA2345CC220014F83E /* BalanceDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A22345CC220014F83E /* BalanceDetailRequest.swift */; };
-		2B0537AB2345CC220014F83E /* UserLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A42345CC220014F83E /* UserLoginRequest.swift */; };
-		2B0537AC2345CC220014F83E /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A52345CC220014F83E /* UserLogin.swift */; };
 		2B0537AD2345CC220014F83E /* Encodable + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A62345CC220014F83E /* Encodable + Extention.swift */; };
 		2B0537AF2345CC280014F83E /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537AE2345CC280014F83E /* ApiManager.swift */; };
 		2B0B99DB234305F300E68B7F /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99DA234305F300E68B7F /* Decision.swift */; };
@@ -48,12 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2B05379E2345CC220014F83E /* ZXApiErrorCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXApiErrorCode.swift; sourceTree = "<group>"; };
-		2B05379F2345CC220014F83E /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
-		2B0537A12345CC220014F83E /* BalanceDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceDetail.swift; sourceTree = "<group>"; };
-		2B0537A22345CC220014F83E /* BalanceDetailRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceDetailRequest.swift; sourceTree = "<group>"; };
-		2B0537A42345CC220014F83E /* UserLoginRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginRequest.swift; sourceTree = "<group>"; };
-		2B0537A52345CC220014F83E /* UserLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		2B0537A62345CC220014F83E /* Encodable + Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable + Extention.swift"; sourceTree = "<group>"; };
 		2B0537AE2345CC280014F83E /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		2B0B99DA234305F300E68B7F /* Decision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decision.swift; sourceTree = "<group>"; };
@@ -103,31 +91,8 @@
 		2B05379D2345CC220014F83E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2B05379F2345CC220014F83E /* BaseResponse.swift */,
-				2B0537A62345CC220014F83E /* Encodable + Extention.swift */,
-				2B05379E2345CC220014F83E /* ZXApiErrorCode.swift */,
-				2B0537A02345CC220014F83E /* BalanceDetail */,
-				2B0537A32345CC220014F83E /* UserLogin */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		2B0537A02345CC220014F83E /* BalanceDetail */ = {
-			isa = PBXGroup;
-			children = (
-				2B0537A12345CC220014F83E /* BalanceDetail.swift */,
-				2B0537A22345CC220014F83E /* BalanceDetailRequest.swift */,
-			);
-			path = BalanceDetail;
-			sourceTree = "<group>";
-		};
-		2B0537A32345CC220014F83E /* UserLogin */ = {
-			isa = PBXGroup;
-			children = (
-				2B0537A42345CC220014F83E /* UserLoginRequest.swift */,
-				2B0537A52345CC220014F83E /* UserLogin.swift */,
-			);
-			path = UserLogin;
 			sourceTree = "<group>";
 		};
 		2B0B99DC2343415A00E68B7F /* Decisions */ = {
@@ -198,6 +163,7 @@
 		2B6CB3222338CF2800770C1B /* Static Components */ = {
 			isa = PBXGroup;
 			children = (
+				2B0537A62345CC220014F83E /* Encodable + Extention.swift */,
 				2B0B99DA234305F300E68B7F /* Decision.swift */,
 				2B6CB33B2338CF2800770C1B /* HTTPTask.swift */,
 				2B6CB33A2338CF2800770C1B /* NetworkRouter.swift */,
@@ -328,17 +294,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B6CB3592338CF2800770C1B /* APILogger.swift in Sources */,
-				2B0537A92345CC220014F83E /* BalanceDetail.swift in Sources */,
 				2B6CB3112338C54E00770C1B /* ViewController.swift in Sources */,
 				2B6CB35B2338CF2800770C1B /* Request.swift in Sources */,
-				2B0537AC2345CC220014F83E /* UserLogin.swift in Sources */,
 				2B6CB3412338CF2800770C1B /* ParameterEncoding.swift in Sources */,
 				2B0B99E4234354E600E68B7F /* BadResponseStatusCodeDecision.swift in Sources */,
-				2B0537A72345CC220014F83E /* ZXApiErrorCode.swift in Sources */,
 				2B6CB35D2338D20500770C1B /* APIError.swift in Sources */,
 				2B6CB3612338DB4D00770C1B /* Decisions.swift in Sources */,
 				2B0B99DE2343417F00E68B7F /* RetryDecision.swift in Sources */,
-				2B0537A82345CC220014F83E /* BaseResponse.swift in Sources */,
 				2B0B99DB234305F300E68B7F /* Decision.swift in Sources */,
 				2B0B99E22343508400E68B7F /* RefreshTokenDecision.swift in Sources */,
 				2B6CB3572338CF2800770C1B /* HTTPTask.swift in Sources */,
@@ -347,10 +309,8 @@
 				2B6CB30F2338C54E00770C1B /* SceneDelegate.swift in Sources */,
 				2B0B99E02343419500E68B7F /* ParseResultDecision.swift in Sources */,
 				2B6CB3562338CF2800770C1B /* NetworkRouter.swift in Sources */,
-				2B0537AB2345CC220014F83E /* UserLoginRequest.swift in Sources */,
 				2B6CB3582338CF2800770C1B /* Router.swift in Sources */,
 				2B0537AD2345CC220014F83E /* Encodable + Extention.swift in Sources */,
-				2B0537AA2345CC220014F83E /* BalanceDetailRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
