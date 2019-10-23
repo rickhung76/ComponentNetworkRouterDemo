@@ -23,30 +23,43 @@ class ApiManager {
         }
     }
     
-    func transformResponse<T:Decodable>(_ result: Result<BaseResponse<T>, Error>, completion: @escaping (_ result: Result<T, APIError>) -> ()) {
-        switch result {
-        case .success(let apiResponse):
-            do {
-                if let data = apiResponse.data  {
-                    completion(.success(data))
-                }
-                else {
-                    let emptyJson = try JSONDecoder().decode(T.self, from: "{}".data(using: .utf8)!)
-                    completion(.success(emptyJson))
-                }
-            } catch {
+//    func transformResponse<T:Decodable>(_ result: Result<BaseResponse<T>, Error>, completion: @escaping (_ result: Result<T, APIError>) -> ()) {
+//        switch result {
+//        case .success(let apiResponse):
+//            do {
+//                if let data = apiResponse.data  {
+//                    completion(.success(data))
+//                }
+//                else {
+//                    let emptyJson = try JSONDecoder().decode(T.self, from: "{}".data(using: .utf8)!)
+//                    completion(.success(emptyJson))
+//                }
+//            } catch {
+//                print(error)
+//                let err = APIError(APIErrorCode.unableToDecode.rawValue,
+//                                   error.localizedDescription)
+//                completion(.failure(err))
+//            }
+//        case .failure(let error):
+//            let responseErr = (error as? APIError) ?? APIError(APIErrorCode.unknowError.rawValue,
+//                                                               error.localizedDescription)
+//            completion(.failure(responseErr))
+//        }
+//    }
+}
+
+extension ApiManager {
+    func requestGithubSearchUser(text: String, page: Int, completion: @escaping((Result<User,Error>)->())) {
+        let req = UserRequest(userName: "cat", page: 0)
+        router.send(req) { (result) in
+            print(result)
+            switch result {
+            case .success(let users):
+                print(users)
+            case .failure(let error):
                 print(error)
-                let err = APIError(APIErrorCode.unableToDecode.rawValue,
-                                   error.localizedDescription)
-                completion(.failure(err))
             }
-        case .failure(let error):
-            let responseErr = (error as? APIError) ?? APIError(APIErrorCode.unknowError.rawValue,
-                                                               error.localizedDescription)
-            completion(.failure(responseErr))
         }
     }
 }
-
-
 
