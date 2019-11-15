@@ -8,9 +8,12 @@
 
 import Foundation
 
-protocol Decision {
+public protocol Decision {
+    
     var description: String {get}
+    
     func shouldApply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?) -> Bool
+    
     func apply<Req: Request>(
         request: Req,
         data: Data?,
@@ -20,18 +23,21 @@ protocol Decision {
         completion: @escaping (DecisionAction<Req>) -> Void)
 }
 
-extension Decision {
+public extension Decision {
+    
     var description: String { return "\(type(of: self))" }
 }
 
-enum DecisionAction<Req: Request> {
+public enum DecisionAction<Req: Request> {
+    
     case continueWithData(Data, HTTPURLResponse)
     case restartWith(Req, [Decision])
     case errored(Error)
     case done(Req.Response)
 }
 
-extension Array where Element == Decision {
+public extension Array where Element == Decision {
+    
     @discardableResult
     func inserting(_ item: Decision, at: Int) -> Array {
         var new = self

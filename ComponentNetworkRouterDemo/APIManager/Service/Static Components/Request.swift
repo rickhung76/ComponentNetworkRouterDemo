@@ -8,19 +8,19 @@
 
 import Foundation
 
-protocol Request: EndPoint, DomainChangable {
+public protocol Request: EndPoint, DomainChangable {
     
     /* associatedtype Response - 定義此 Request 的 Response model type */
     associatedtype Response: Decodable
     
 }
 
-extension Request {
+public extension Request {
     
     var baseURL: String { return baseURL() }
 }
 
-protocol EndPoint {
+public protocol EndPoint {
     
     var baseURL: String { get }
     
@@ -33,13 +33,11 @@ protocol EndPoint {
     var urlParameters: Parameters? { get }
     
     var bodyEncoding: ParameterEncoding? { get }
-
-   // var task: HTTPTask { get }
     
     var headers: HTTPHeaders? { get }
 }
 
-protocol DomainChangable {
+public protocol DomainChangable {
     
     var multiDomain: MultiDomain { get }
     
@@ -48,7 +46,7 @@ protocol DomainChangable {
     mutating func setNextDomain()
 }
 
-extension DomainChangable {
+public extension DomainChangable {
     
     func baseURL() -> String {
         guard multiDomain.urlIndex < multiDomain.URLs.count else {
@@ -63,7 +61,7 @@ extension DomainChangable {
     }
 }
 
-class MultiDomain {
+public class MultiDomain {
     
     /* URLs - URL list for API Domain */
     var URLs: [String]
@@ -71,7 +69,7 @@ class MultiDomain {
     /* urlIndex - current index for url list */
     var urlIndex: Int = 0
     
-    init(URLs: [String]) {
+    public init(URLs: [String]) {
         self.URLs = URLs
     }
 }

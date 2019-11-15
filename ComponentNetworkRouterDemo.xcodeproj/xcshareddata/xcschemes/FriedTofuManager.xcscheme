@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2B6CB3082338C54E00770C1B"
-               BuildableName = "ComponentNetworkRouterDemo.app"
-               BlueprintName = "ComponentNetworkRouterDemo"
+               BlueprintIdentifier = "2B0C547F237E92D500F99058"
+               BuildableName = "FriedTofuTestTarget.app"
+               BlueprintName = "FriedTofuTestTarget"
                ReferencedContainer = "container:ComponentNetworkRouterDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2B6A7576235EF82C00E50ADE"
-               BuildableName = "ComponentNetworkRouterDemoTests.xctest"
-               BlueprintName = "ComponentNetworkRouterDemoTests"
-               ReferencedContainer = "container:ComponentNetworkRouterDemo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2B0C5456237E887700F99058"
-               BuildableName = "FriedTofuTests.xctest"
-               BlueprintName = "FriedTofuTests"
-               ReferencedContainer = "container:ComponentNetworkRouterDemo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -64,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2B6CB3082338C54E00770C1B"
-            BuildableName = "ComponentNetworkRouterDemo.app"
-            BlueprintName = "ComponentNetworkRouterDemo"
+            BlueprintIdentifier = "2B0C547F237E92D500F99058"
+            BuildableName = "FriedTofuTestTarget.app"
+            BlueprintName = "FriedTofuTestTarget"
             ReferencedContainer = "container:ComponentNetworkRouterDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2B6CB3082338C54E00770C1B"
-            BuildableName = "ComponentNetworkRouterDemo.app"
-            BlueprintName = "ComponentNetworkRouterDemo"
+            BlueprintIdentifier = "2B0C547F237E92D500F99058"
+            BuildableName = "FriedTofuTestTarget.app"
+            BlueprintName = "FriedTofuTestTarget"
             ReferencedContainer = "container:ComponentNetworkRouterDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

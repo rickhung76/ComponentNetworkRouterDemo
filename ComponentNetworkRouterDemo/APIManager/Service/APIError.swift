@@ -21,7 +21,7 @@ public enum APIErrorCode: Int {
     case serverError = 50000
     case unknownError = 77777
     
-    var description: String {
+    public var description: String {
         switch self {
         case .badRequest:
             return "Bad request"
@@ -49,24 +49,24 @@ public enum APIErrorCode: Int {
     }
 }
 
-struct APIError: Error, LocalizedError {
+public struct APIError: Error, LocalizedError {
     let statusCode: Int
     let message: String
     let details: String?
     
-    init(_ code: Int, _ message: String, _ details: String? = nil) {
+    public init(_ code: Int, _ message: String, _ details: String? = nil) {
         self.statusCode = code
         self.message = message
         self.details = details
     }
     
-    init(_ apiErrorCode: APIErrorCode, _ details: String? = nil) {
+    public init(_ apiErrorCode: APIErrorCode, _ details: String? = nil) {
         self.statusCode = apiErrorCode.rawValue
         self.message = apiErrorCode.description
         self.details = details
     }
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         return self.message
     }
 }

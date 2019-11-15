@@ -17,6 +17,36 @@
 		2B0B99E02343419500E68B7F /* ParseResultDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99DF2343419500E68B7F /* ParseResultDecision.swift */; };
 		2B0B99E22343508400E68B7F /* RefreshTokenDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99E12343508400E68B7F /* RefreshTokenDecision.swift */; };
 		2B0B99E4234354E600E68B7F /* BadResponseStatusCodeDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99E3234354E600E68B7F /* BadResponseStatusCodeDecision.swift */; };
+		2B0C5458237E887700F99058 /* FriedTofu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0C544F237E887700F99058 /* FriedTofu.framework */; };
+		2B0C545F237E887700F99058 /* FriedTofuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C545E237E887700F99058 /* FriedTofuTests.swift */; };
+		2B0C5461237E887700F99058 /* FriedTofu.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B0C5451237E887700F99058 /* FriedTofu.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2B0C5464237E887700F99058 /* FriedTofu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0C544F237E887700F99058 /* FriedTofu.framework */; };
+		2B0C5465237E887700F99058 /* FriedTofu.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0C544F237E887700F99058 /* FriedTofu.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2B0C5473237E88E500F99058 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB35C2338D20500770C1B /* APIError.swift */; };
+		2B0C5474237E88E500F99058 /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB33D2338CF2800770C1B /* APILogger.swift */; };
+		2B0C5475237E88E500F99058 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB33C2338CF2800770C1B /* Router.swift */; };
+		2B0C5476237E88EB00F99058 /* Encodable + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A62345CC220014F83E /* Encodable + Extention.swift */; };
+		2B0C5477237E88EB00F99058 /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99DA234305F300E68B7F /* Decision.swift */; };
+		2B0C5478237E88EB00F99058 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB33B2338CF2800770C1B /* HTTPTask.swift */; };
+		2B0C5479237E88EB00F99058 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB33A2338CF2800770C1B /* NetworkRouter.swift */; };
+		2B0C547A237E88EB00F99058 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB3232338CF2800770C1B /* ParameterEncoding.swift */; };
+		2B0C547B237E88EB00F99058 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB33F2338CF2800770C1B /* Request.swift */; };
+		2B0C5483237E92D600F99058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C5482237E92D600F99058 /* AppDelegate.swift */; };
+		2B0C5485237E92D600F99058 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C5484237E92D600F99058 /* SceneDelegate.swift */; };
+		2B0C5487237E92D600F99058 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C5486237E92D600F99058 /* ViewController.swift */; };
+		2B0C548A237E92D600F99058 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B0C5488237E92D600F99058 /* Main.storyboard */; };
+		2B0C548C237E92D700F99058 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B0C548B237E92D700F99058 /* Assets.xcassets */; };
+		2B0C548F237E92D700F99058 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B0C548D237E92D700F99058 /* LaunchScreen.storyboard */; };
+		2B0C5496237E934800F99058 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C5495237E934800F99058 /* APIManager.swift */; };
+		2B0C54A8237E93CD00F99058 /* ParseResultDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54A3237E93CD00F99058 /* ParseResultDecision.swift */; };
+		2B0C54A9237E93CD00F99058 /* RetryDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54A4237E93CD00F99058 /* RetryDecision.swift */; };
+		2B0C54AA237E93CD00F99058 /* Decisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54A5237E93CD00F99058 /* Decisions.swift */; };
+		2B0C54AB237E93CD00F99058 /* BadResponseStatusCodeDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54A6237E93CD00F99058 /* BadResponseStatusCodeDecision.swift */; };
+		2B0C54AC237E93CD00F99058 /* RefreshTokenDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54A7237E93CD00F99058 /* RefreshTokenDecision.swift */; };
+		2B0C54AD237E959600F99058 /* FriedTofu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0C544F237E887700F99058 /* FriedTofu.framework */; };
+		2B0C54B5237E97D100F99058 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54AF237E97D100F99058 /* BaseResponse.swift */; };
+		2B0C54B6237E97D100F99058 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54B1237E97D100F99058 /* User.swift */; };
+		2B0C54B7237E97D100F99058 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54B2237E97D100F99058 /* UserRequest.swift */; };
 		2B6A757A235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6A7579235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift */; };
 		2B6CB30D2338C54E00770C1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB30C2338C54E00770C1B /* AppDelegate.swift */; };
 		2B6CB30F2338C54E00770C1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB30E2338C54E00770C1B /* SceneDelegate.swift */; };
@@ -54,6 +84,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2B0C5459237E887700F99058 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B6CB3012338C54E00770C1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B0C544E237E887700F99058;
+			remoteInfo = FriedTofu;
+		};
+		2B0C545B237E887700F99058 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B6CB3012338C54E00770C1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B6CB3082338C54E00770C1B;
+			remoteInfo = ComponentNetworkRouterDemo;
+		};
+		2B0C5462237E887700F99058 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B6CB3012338C54E00770C1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B0C544E237E887700F99058;
+			remoteInfo = FriedTofu;
+		};
 		2B6A757C235EF82C00E50ADE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2B6CB3012338C54E00770C1B /* Project object */;
@@ -62,6 +113,20 @@
 			remoteInfo = ComponentNetworkRouterDemo;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2B0C5466237E887700F99058 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2B0C5465237E887700F99058 /* FriedTofu.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2B0537A62345CC220014F83E /* Encodable + Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable + Extention.swift"; sourceTree = "<group>"; };
@@ -74,6 +139,29 @@
 		2B0B99DF2343419500E68B7F /* ParseResultDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseResultDecision.swift; sourceTree = "<group>"; };
 		2B0B99E12343508400E68B7F /* RefreshTokenDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenDecision.swift; sourceTree = "<group>"; };
 		2B0B99E3234354E600E68B7F /* BadResponseStatusCodeDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadResponseStatusCodeDecision.swift; sourceTree = "<group>"; };
+		2B0C544F237E887700F99058 /* FriedTofu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FriedTofu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B0C5451237E887700F99058 /* FriedTofu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriedTofu.h; sourceTree = "<group>"; };
+		2B0C5452237E887700F99058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B0C5457237E887700F99058 /* FriedTofuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FriedTofuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B0C545E237E887700F99058 /* FriedTofuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriedTofuTests.swift; sourceTree = "<group>"; };
+		2B0C5460237E887700F99058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B0C5480237E92D500F99058 /* FriedTofuTestTarget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FriedTofuTestTarget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B0C5482237E92D600F99058 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2B0C5484237E92D600F99058 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2B0C5486237E92D600F99058 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2B0C5489237E92D600F99058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2B0C548B237E92D700F99058 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2B0C548E237E92D700F99058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2B0C5490237E92D700F99058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B0C5495237E934800F99058 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		2B0C54A3237E93CD00F99058 /* ParseResultDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseResultDecision.swift; sourceTree = "<group>"; };
+		2B0C54A4237E93CD00F99058 /* RetryDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetryDecision.swift; sourceTree = "<group>"; };
+		2B0C54A5237E93CD00F99058 /* Decisions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decisions.swift; sourceTree = "<group>"; };
+		2B0C54A6237E93CD00F99058 /* BadResponseStatusCodeDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadResponseStatusCodeDecision.swift; sourceTree = "<group>"; };
+		2B0C54A7237E93CD00F99058 /* RefreshTokenDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshTokenDecision.swift; sourceTree = "<group>"; };
+		2B0C54AF237E97D100F99058 /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
+		2B0C54B1237E97D100F99058 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2B0C54B2237E97D100F99058 /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		2B6A7577235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComponentNetworkRouterDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6A7579235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentNetworkRouterDemoTests.swift; sourceTree = "<group>"; };
 		2B6A757B235EF82C00E50ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +188,29 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2B0C544C237E887700F99058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B0C5454237E887700F99058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B0C5458237E887700F99058 /* FriedTofu.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B0C547D237E92D500F99058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B0C54AD237E959600F99058 /* FriedTofu.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2B6A7574235EF82C00E50ADE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -111,6 +222,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B0C5464237E887700F99058 /* FriedTofu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +259,95 @@
 			path = Decisions;
 			sourceTree = "<group>";
 		};
+		2B0C5450237E887700F99058 /* FriedTofu */ = {
+			isa = PBXGroup;
+			children = (
+				2B0C5451237E887700F99058 /* FriedTofu.h */,
+				2B0C5452237E887700F99058 /* Info.plist */,
+			);
+			path = FriedTofu;
+			sourceTree = "<group>";
+		};
+		2B0C545D237E887700F99058 /* FriedTofuTests */ = {
+			isa = PBXGroup;
+			children = (
+				2B0C545E237E887700F99058 /* FriedTofuTests.swift */,
+				2B0C5460237E887700F99058 /* Info.plist */,
+			);
+			path = FriedTofuTests;
+			sourceTree = "<group>";
+		};
+		2B0C5481237E92D600F99058 /* FriedTofuTestTarget */ = {
+			isa = PBXGroup;
+			children = (
+				2B0C5494237E932400F99058 /* APIManager */,
+				2B0C5482237E92D600F99058 /* AppDelegate.swift */,
+				2B0C5484237E92D600F99058 /* SceneDelegate.swift */,
+				2B0C5486237E92D600F99058 /* ViewController.swift */,
+				2B0C5488237E92D600F99058 /* Main.storyboard */,
+				2B0C548B237E92D700F99058 /* Assets.xcassets */,
+				2B0C548D237E92D700F99058 /* LaunchScreen.storyboard */,
+				2B0C5490237E92D700F99058 /* Info.plist */,
+			);
+			path = FriedTofuTestTarget;
+			sourceTree = "<group>";
+		};
+		2B0C5494237E932400F99058 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				2B0C54AE237E97D100F99058 /* Models */,
+				2B0C54A2237E93CD00F99058 /* Decisions */,
+				2B0C5495237E934800F99058 /* APIManager.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
+		2B0C54A2237E93CD00F99058 /* Decisions */ = {
+			isa = PBXGroup;
+			children = (
+				2B0C54A3237E93CD00F99058 /* ParseResultDecision.swift */,
+				2B0C54A4237E93CD00F99058 /* RetryDecision.swift */,
+				2B0C54A5237E93CD00F99058 /* Decisions.swift */,
+				2B0C54A6237E93CD00F99058 /* BadResponseStatusCodeDecision.swift */,
+				2B0C54A7237E93CD00F99058 /* RefreshTokenDecision.swift */,
+			);
+			path = Decisions;
+			sourceTree = "<group>";
+		};
+		2B0C54AE237E97D100F99058 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2B0C54AF237E97D100F99058 /* BaseResponse.swift */,
+				2B0C54B0237E97D100F99058 /* User */,
+				2B0C54B3237E97D100F99058 /* BalanceDetail */,
+				2B0C54B4237E97D100F99058 /* UserLogin */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2B0C54B0237E97D100F99058 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				2B0C54B1237E97D100F99058 /* User.swift */,
+				2B0C54B2237E97D100F99058 /* UserRequest.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		2B0C54B3237E97D100F99058 /* BalanceDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BalanceDetail;
+			sourceTree = "<group>";
+		};
+		2B0C54B4237E97D100F99058 /* UserLogin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UserLogin;
+			sourceTree = "<group>";
+		};
 		2B6A7578235EF82C00E50ADE /* ComponentNetworkRouterDemoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +363,9 @@
 			children = (
 				2B6CB30B2338C54E00770C1B /* ComponentNetworkRouterDemo */,
 				2B6A7578235EF82C00E50ADE /* ComponentNetworkRouterDemoTests */,
+				2B0C5450237E887700F99058 /* FriedTofu */,
+				2B0C545D237E887700F99058 /* FriedTofuTests */,
+				2B0C5481237E92D600F99058 /* FriedTofuTestTarget */,
 				2B6CB30A2338C54E00770C1B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -171,6 +375,9 @@
 			children = (
 				2B6CB3092338C54E00770C1B /* ComponentNetworkRouterDemo.app */,
 				2B6A7577235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.xctest */,
+				2B0C544F237E887700F99058 /* FriedTofu.framework */,
+				2B0C5457237E887700F99058 /* FriedTofuTests.xctest */,
+				2B0C5480237E92D500F99058 /* FriedTofuTestTarget.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,7 +469,72 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		2B0C544A237E887700F99058 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B0C5461237E887700F99058 /* FriedTofu.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		2B0C544E237E887700F99058 /* FriedTofu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B0C546B237E887700F99058 /* Build configuration list for PBXNativeTarget "FriedTofu" */;
+			buildPhases = (
+				2B0C544A237E887700F99058 /* Headers */,
+				2B0C544B237E887700F99058 /* Sources */,
+				2B0C544C237E887700F99058 /* Frameworks */,
+				2B0C544D237E887700F99058 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FriedTofu;
+			productName = FriedTofu;
+			productReference = 2B0C544F237E887700F99058 /* FriedTofu.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2B0C5456237E887700F99058 /* FriedTofuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B0C546C237E887700F99058 /* Build configuration list for PBXNativeTarget "FriedTofuTests" */;
+			buildPhases = (
+				2B0C5453237E887700F99058 /* Sources */,
+				2B0C5454237E887700F99058 /* Frameworks */,
+				2B0C5455237E887700F99058 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B0C545A237E887700F99058 /* PBXTargetDependency */,
+				2B0C545C237E887700F99058 /* PBXTargetDependency */,
+			);
+			name = FriedTofuTests;
+			productName = FriedTofuTests;
+			productReference = 2B0C5457237E887700F99058 /* FriedTofuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2B0C547F237E92D500F99058 /* FriedTofuTestTarget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B0C5491237E92D700F99058 /* Build configuration list for PBXNativeTarget "FriedTofuTestTarget" */;
+			buildPhases = (
+				2B0C547C237E92D500F99058 /* Sources */,
+				2B0C547D237E92D500F99058 /* Frameworks */,
+				2B0C547E237E92D500F99058 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FriedTofuTestTarget;
+			productName = FriedTofuManager;
+			productReference = 2B0C5480237E92D500F99058 /* FriedTofuTestTarget.app */;
+			productType = "com.apple.product-type.application";
+		};
 		2B6A7576235EF82C00E50ADE /* ComponentNetworkRouterDemoTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B6A7580235EF82C00E50ADE /* Build configuration list for PBXNativeTarget "ComponentNetworkRouterDemoTests" */;
@@ -288,10 +560,12 @@
 				2B6CB3052338C54E00770C1B /* Sources */,
 				2B6CB3062338C54E00770C1B /* Frameworks */,
 				2B6CB3072338C54E00770C1B /* Resources */,
+				2B0C5466237E887700F99058 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2B0C5463237E887700F99058 /* PBXTargetDependency */,
 			);
 			name = ComponentNetworkRouterDemo;
 			productName = ComponentNetworkRouterDemo;
@@ -308,6 +582,16 @@
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "黃柏叡";
 				TargetAttributes = {
+					2B0C544E237E887700F99058 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					2B0C5456237E887700F99058 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 2B6CB3082338C54E00770C1B;
+					};
+					2B0C547F237E92D500F99058 = {
+						CreatedOnToolsVersion = 11.1;
+					};
 					2B6A7576235EF82C00E50ADE = {
 						CreatedOnToolsVersion = 11.1;
 						TestTargetID = 2B6CB3082338C54E00770C1B;
@@ -332,11 +616,38 @@
 			targets = (
 				2B6CB3082338C54E00770C1B /* ComponentNetworkRouterDemo */,
 				2B6A7576235EF82C00E50ADE /* ComponentNetworkRouterDemoTests */,
+				2B0C544E237E887700F99058 /* FriedTofu */,
+				2B0C5456237E887700F99058 /* FriedTofuTests */,
+				2B0C547F237E92D500F99058 /* FriedTofuTestTarget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2B0C544D237E887700F99058 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B0C5455237E887700F99058 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B0C547E237E92D500F99058 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B0C548F237E92D700F99058 /* LaunchScreen.storyboard in Resources */,
+				2B0C548C237E92D700F99058 /* Assets.xcassets in Resources */,
+				2B0C548A237E92D600F99058 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2B6A7575235EF82C00E50ADE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -357,6 +668,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2B0C544B237E887700F99058 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B0C5474237E88E500F99058 /* APILogger.swift in Sources */,
+				2B0C547A237E88EB00F99058 /* ParameterEncoding.swift in Sources */,
+				2B0C5477237E88EB00F99058 /* Decision.swift in Sources */,
+				2B0C547B237E88EB00F99058 /* Request.swift in Sources */,
+				2B0C5475237E88E500F99058 /* Router.swift in Sources */,
+				2B0C5478237E88EB00F99058 /* HTTPTask.swift in Sources */,
+				2B0C5476237E88EB00F99058 /* Encodable + Extention.swift in Sources */,
+				2B0C5473237E88E500F99058 /* APIError.swift in Sources */,
+				2B0C5479237E88EB00F99058 /* NetworkRouter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B0C5453237E887700F99058 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B0C545F237E887700F99058 /* FriedTofuTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B0C547C237E92D500F99058 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B0C5496237E934800F99058 /* APIManager.swift in Sources */,
+				2B0C54AB237E93CD00F99058 /* BadResponseStatusCodeDecision.swift in Sources */,
+				2B0C5487237E92D600F99058 /* ViewController.swift in Sources */,
+				2B0C54A9237E93CD00F99058 /* RetryDecision.swift in Sources */,
+				2B0C5483237E92D600F99058 /* AppDelegate.swift in Sources */,
+				2B0C54B5237E97D100F99058 /* BaseResponse.swift in Sources */,
+				2B0C5485237E92D600F99058 /* SceneDelegate.swift in Sources */,
+				2B0C54AC237E93CD00F99058 /* RefreshTokenDecision.swift in Sources */,
+				2B0C54B7237E97D100F99058 /* UserRequest.swift in Sources */,
+				2B0C54AA237E93CD00F99058 /* Decisions.swift in Sources */,
+				2B0C54A8237E93CD00F99058 /* ParseResultDecision.swift in Sources */,
+				2B0C54B6237E97D100F99058 /* User.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2B6A7573235EF82C00E50ADE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,6 +769,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2B0C545A237E887700F99058 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B0C544E237E887700F99058 /* FriedTofu */;
+			targetProxy = 2B0C5459237E887700F99058 /* PBXContainerItemProxy */;
+		};
+		2B0C545C237E887700F99058 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B6CB3082338C54E00770C1B /* ComponentNetworkRouterDemo */;
+			targetProxy = 2B0C545B237E887700F99058 /* PBXContainerItemProxy */;
+		};
+		2B0C5463237E887700F99058 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B0C544E237E887700F99058 /* FriedTofu */;
+			targetProxy = 2B0C5462237E887700F99058 /* PBXContainerItemProxy */;
+		};
 		2B6A757D235EF82C00E50ADE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2B6CB3082338C54E00770C1B /* ComponentNetworkRouterDemo */;
@@ -423,6 +792,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2B0C5488237E92D600F99058 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B0C5489237E92D600F99058 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2B0C548D237E92D700F99058 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2B0C548E237E92D700F99058 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		2B6CB3122338C54E00770C1B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -442,6 +827,142 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2B0C5467237E887700F99058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = BLGFD4U72P;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FriedTofu/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rk.FriedTofu;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2B0C5468237E887700F99058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = BLGFD4U72P;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FriedTofu/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rk.FriedTofu;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2B0C5469237E887700F99058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BLGFD4U72P;
+				INFOPLIST_FILE = FriedTofuTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rk.FriedTofuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ComponentNetworkRouterDemo.app/ComponentNetworkRouterDemo";
+			};
+			name = Debug;
+		};
+		2B0C546A237E887700F99058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BLGFD4U72P;
+				INFOPLIST_FILE = FriedTofuTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rk.FriedTofuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ComponentNetworkRouterDemo.app/ComponentNetworkRouterDemo";
+			};
+			name = Release;
+		};
+		2B0C5492237E92D700F99058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BLGFD4U72P;
+				INFOPLIST_FILE = FriedTofuTestTarget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rk.FriedTofuTestTarget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2B0C5493237E92D700F99058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BLGFD4U72P;
+				INFOPLIST_FILE = FriedTofuTestTarget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rk.FriedTofuTestTarget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		2B6A757E235EF82C00E50ADE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -606,6 +1127,7 @@
 		2B6CB31E2338C54F00770C1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BLGFD4U72P;
@@ -626,6 +1148,7 @@
 		2B6CB31F2338C54F00770C1B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BLGFD4U72P;
@@ -646,6 +1169,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2B0C546B237E887700F99058 /* Build configuration list for PBXNativeTarget "FriedTofu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B0C5467237E887700F99058 /* Debug */,
+				2B0C5468237E887700F99058 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B0C546C237E887700F99058 /* Build configuration list for PBXNativeTarget "FriedTofuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B0C5469237E887700F99058 /* Debug */,
+				2B0C546A237E887700F99058 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B0C5491237E92D700F99058 /* Build configuration list for PBXNativeTarget "FriedTofuTestTarget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B0C5492237E92D700F99058 /* Debug */,
+				2B0C5493237E92D700F99058 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2B6A7580235EF82C00E50ADE /* Build configuration list for PBXNativeTarget "ComponentNetworkRouterDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

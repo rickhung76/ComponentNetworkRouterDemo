@@ -8,23 +8,28 @@
 
 import Foundation
 
-class Router: NetworkRouter {
+public class Router: NetworkRouter {
+    private var defultDecisions: [Decision]
     private var task: URLSessionTask?
     private var timeoutInterval = 10.0
     
-    func send<T: Request>(_ request: T, decisions: [Decision]? = nil, completion: @escaping (Result<T.Response, Error>)->()) {
+    public init(_ decisions: [Decision]) {
+        self.defultDecisions = decisions
+    }
+    
+    public func send<T: Request>(_ request: T, decisions: [Decision]? = nil, completion: @escaping (Result<T.Response, Error>)->()) {
         let session = URLSession.shared
         do {
             let formatRequest = try self.buildRequest(from: request)
             APILogger.log(request: formatRequest)
             task = session.dataTask(with: formatRequest, completionHandler: { [weak self, decisions] data, response, error in
                 guard let self = self else {return}
-
+                
                 self.handleDecision(request: request,
                                     data: data,
                                     response: response,
                                     error: error,
-                                    decisions: decisions ?? Decisions.shared.defaults,
+                                    decisions: decisions ?? self.defultDecisions,
                                     handler: completion)
             })
         } catch {
@@ -35,7 +40,7 @@ class Router: NetworkRouter {
         self.task?.resume()
     }
     
-    func cancel() {
+    public func cancel() {
         self.task?.cancel()
     }
     
@@ -50,9 +55,9 @@ class Router: NetworkRouter {
                 request.setValue("application/json", forHTTPHeaderField: "Content-Type")
             } else {
                 try self.configureParameters(bodyParameters: route.parameters,
-                bodyEncoding: route.bodyEncoding!,
-                urlParameters: route.urlParameters,
-                request: &request)
+                                             bodyEncoding: route.bodyEncoding!,
+                                             urlParameters: route.urlParameters,
+                                             request: &request)
             }
             
             if let additionalHeaders = route.headers {
@@ -88,7 +93,7 @@ class Router: NetworkRouter {
         guard !decisions.isEmpty else {
             fatalError("No decision left but did not reach a stop.")
         }
-
+        
         var decisions = decisions
         let current = decisions.removeFirst()
         guard current.shouldApply(request: request, data: data, response: response, error: error) else {
