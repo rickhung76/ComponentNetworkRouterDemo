@@ -10,14 +10,15 @@ import Foundation
 import FriedTofu
 
 struct RefreshTokenDecision: Decision {
-    func shouldApply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?) -> Bool  {
-        guard let response = response as? HTTPURLResponse else {
+    func shouldApply<Req: Request>(request: Req) -> Bool  {
+        guard let response = request.response,
+            let httpUrlResponse = response.response as? HTTPURLResponse else {
             return true
         }
-        return response.statusCode == 401
+        return httpUrlResponse.statusCode == 401
     }
     
-    func apply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
+    func apply<Req: Request>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
 //        var request = request
         //refresh token sucess implement
         let newDecisions = decisions.removing(self)

@@ -13,11 +13,24 @@ public protocol Request: EndPoint, DomainChangable {
     /* associatedtype Response - 定義此 Request 的 Response model type */
     associatedtype Response: Decodable
     
+    var formatRequest: URLRequest? { get set }
+    
+    var response: ResponseTuple? { get set }
 }
 
 public extension Request {
     
     var baseURL: String { return baseURL() }
+    
+    mutating func setFormatRequest(_ request: URLRequest) {
+        self.formatRequest = request
+    }
+    
+    mutating func setResponse(_ data: Data?, response: URLResponse?, error: Error?){
+        self.response = ResponseTuple(data: data,
+                                      response: response,
+                                      error: error)
+    }
 }
 
 public protocol EndPoint {
@@ -72,4 +85,10 @@ public class MultiDomain {
     public init(URLs: [String]) {
         self.URLs = URLs
     }
+}
+
+public struct ResponseTuple {
+    public let data: Data?
+    public let response: URLResponse?
+    public let error: Error?
 }

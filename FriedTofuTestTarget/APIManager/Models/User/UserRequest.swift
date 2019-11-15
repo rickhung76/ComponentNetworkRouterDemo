@@ -10,7 +10,12 @@ import Foundation
 import FriedTofu
 
 struct UserRequest: Request {
+    
     typealias Response = BaseResponse<[User]>
+    
+    var formatRequest: URLRequest? = nil
+    
+    var response: ResponseTuple? = nil
     
     var path: String {
         return "/search/users"

@@ -12,13 +12,10 @@ public protocol Decision {
     
     var description: String {get}
     
-    func shouldApply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?) -> Bool
+    func shouldApply<Req: Request>(request: Req) -> Bool
     
     func apply<Req: Request>(
         request: Req,
-        data: Data?,
-        response: URLResponse?,
-        error: Error?,
         decisions: [Decision],
         completion: @escaping (DecisionAction<Req>) -> Void)
 }
@@ -30,7 +27,8 @@ public extension Decision {
 
 public enum DecisionAction<Req: Request> {
     
-    case continueWithData(Data, HTTPURLResponse)
+//    case continueWithData(Data, HTTPURLResponse)
+    case continueWithRequst(Req)
     case restartWith(Req, [Decision])
     case errored(Error)
     case done(Req.Response)

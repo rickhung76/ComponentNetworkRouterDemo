@@ -10,7 +10,7 @@ import Foundation
 
 class ApiManager {
     static let shared = ApiManager()
-    let router = Router(Decisions.shared.defaults)
+    let router = Router(with: Decisions.shared.defaults)
 
     lazy var domains: [String] = {
         return ["https://www.zxfast.com"]

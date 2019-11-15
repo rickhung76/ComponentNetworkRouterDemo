@@ -11,16 +11,26 @@ import Foundation
 struct RetryDecision: Decision {
     let retryCount: Int
     
-    func shouldApply<Req>(request: Req, data: Data?, response: URLResponse?, error: Error?) -> Bool where Req : Request {
-        guard error == nil, let response = response as? HTTPURLResponse, let _ = data else {
+    func shouldApply<Req>(request: Req) -> Bool where Req : Request {
+        guard let response = request.response,
+            response.error == nil,
+            let httpUrlResponse = response.response as? HTTPURLResponse,
+            response.data != nil else {
             return true
         }
                 
-        let isStatusCodeValid = (200...299).contains(response.statusCode)
+        let isStatusCodeValid = (200...299).contains(httpUrlResponse.statusCode)
         return !isStatusCodeValid
     }
     
-    func apply<Req>(request: Req, data: Data?, response: URLResponse?, error: Error?, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
+    func apply<Req>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
+        guard let response = request.response else {
+            let errRes = APIError(APIErrorCode.missingResponse.rawValue,
+                                  APIErrorCode.missingResponse.description)
+            completion(.errored(errRes))
+            return
+        }
+        
         var request = request
         request.setNextDomain()
         
@@ -31,21 +41,21 @@ struct RetryDecision: Decision {
         } else {
             var errRes: APIError!
             
-            if let error = error {
+            if let error = response.error {
                 errRes = APIError(APIErrorCode.clientError.rawValue,
                                       error.localizedDescription)
                 completion(.errored(errRes))
                 return
             }
             
-            guard let _ = response as? HTTPURLResponse else {
+            guard let _ = response.response as? HTTPURLResponse else {
                 errRes = APIError(APIErrorCode.missingResponse.rawValue,
                                   APIErrorCode.missingResponse.description)
                 completion(.errored(errRes))
                 return
             }
             
-            guard data != nil else {
+            guard response.data != nil else {
                 errRes = APIError(APIErrorCode.missingData.rawValue,
                                   APIErrorCode.missingData.description)
                 completion(.errored(errRes))

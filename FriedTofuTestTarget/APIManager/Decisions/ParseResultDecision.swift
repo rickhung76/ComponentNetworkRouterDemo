@@ -10,12 +10,19 @@ import Foundation
 import FriedTofu
 
 struct ParseResultDecision: Decision {
-    func shouldApply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?) -> Bool {
+    func shouldApply<Req: Request>(request: Req) -> Bool {
         return true
     }
 
-    func apply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
-        guard let data = data else {
+    func apply<Req: Request>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
+        guard let response = request.response else {
+            let errRes = APIError(APIErrorCode.missingResponse.rawValue,
+                                  APIErrorCode.missingResponse.description)
+            completion(.errored(errRes))
+            return
+        }
+        
+        guard let data = response.data else {
             let errRes = APIError(APIErrorCode.missingData.rawValue,
                                   APIErrorCode.missingData.description)
             completion(.errored(errRes))

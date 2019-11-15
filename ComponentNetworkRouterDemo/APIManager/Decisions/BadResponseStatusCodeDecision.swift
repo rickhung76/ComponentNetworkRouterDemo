@@ -9,23 +9,25 @@
 import Foundation
 
 struct BadResponseStatusCodeDecision: Decision {
-    func shouldApply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?) -> Bool {
-        guard let response = response as? HTTPURLResponse else {
+    func shouldApply<Req: Request>(request: Req) -> Bool {
+        guard let response = request.response,
+            let httpUrlResponse = response.response as? HTTPURLResponse else {
             return true
         }
-        return !(200...299).contains(response.statusCode)
+        return !(200...299).contains(httpUrlResponse.statusCode)
     }
     
-    func apply<Req: Request>(request: Req, data: Data?, response: URLResponse?, error: Error?, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
-        guard let response = response as? HTTPURLResponse else {
+    func apply<Req: Request>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
+        guard let response = request.response,
+            let httpUrlResponse = response.response as? HTTPURLResponse else {
             let errRes = APIError(APIErrorCode.missingResponse.rawValue,
                                   APIErrorCode.missingResponse.description)
             completion(.errored(errRes))
             return
         }
         
-        let errCode = handleHttpStatus(response)
-        let errRes = APIError(response.statusCode, errCode.description)
+        let errCode = handleHttpStatus(httpUrlResponse)
+        let errRes = APIError(httpUrlResponse.statusCode, errCode.description)
         completion(.errored(errRes))
     }
     

@@ -15,6 +15,8 @@ struct Decisions {
     
     lazy var defaults: [Decision] =
         [
+            BuildRequestDecision(),
+            SendRequestDecision(),
             RetryDecision(retryCount: 3),
             RefreshTokenDecision(),
             BadResponseStatusCodeDecision(),

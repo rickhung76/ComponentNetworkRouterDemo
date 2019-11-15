@@ -13,11 +13,17 @@ class APIManager {
     
     static let shared = APIManager()
     
-    lazy var decisions = Decisions.shared.defaults
+    lazy var defaultDecisions: [Decision] =
+    [
+        BuildRequestDecision(),
+        SendRequestDecision(),
+        RetryDecision(retryCount: 3),
+        RefreshTokenDecision(),
+        BadResponseStatusCodeDecision(),
+        ParseResultDecision()
+    ]
     
-    lazy var router = Router(decisions)
-    
-    
+    lazy var router = Router(with: defaultDecisions)
 }
 
 extension APIManager {

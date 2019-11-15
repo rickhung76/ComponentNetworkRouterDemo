@@ -12,6 +12,7 @@ public enum APIErrorCode: Int {
     case badRequest = 40000
     case encodingFailed = 40001
     case missingURL = 40002
+    case missingRequest = 40003
     case authenticationError = 40100
     case invalidToken = 40300
     case missingResponse = 41000
@@ -29,6 +30,8 @@ public enum APIErrorCode: Int {
             return "Parameter encoding failed."
         case .missingURL:
             return "URL is nil."
+        case .missingRequest:
+            return "Request is nil."
         case .authenticationError:
             return "You need to be authenticated first."
         case .invalidToken:
