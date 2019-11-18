@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FriedTofu
 
 struct RefreshTokenDecision: Decision {
     let apiClosure: (() -> Result<Bool, Error>)? 

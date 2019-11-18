@@ -17,7 +17,7 @@ struct Decisions {
             BuildRequestDecision(),
             SendRequestDecision(),
             RetryDecision(retryCount: 3),
-            RefreshTokenDecision(),
+            RefreshTokenDecision(apiClosure: nil),
             BadResponseStatusCodeDecision(),
             ParseResultDecision()
         ]
