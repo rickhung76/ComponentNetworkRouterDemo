@@ -10,11 +10,17 @@ import Foundation
 
 public protocol Request: EndPoint, DomainChangable {
     
-    /* associatedtype Response - 定義此 Request 的 Response model type */
+    /// Response model type
     associatedtype Response: Decodable
     
+    
+    /// The URLRequest object, will be assigned by build request decision.
+    /// - Give nil at initial state is fine.
     var formatRequest: URLRequest? { get set }
     
+    
+    /// The ResponseTuple object, will be assigned by send request decision.
+    /// - Give nil at initial state is fine.
     var response: ResponseTuple? { get set }
 }
 
@@ -76,19 +82,27 @@ public extension DomainChangable {
 
 public class MultiDomain {
     
-    /* URLs - URL list for API Domain */
+    /// URL list for Domains
     var URLs: [String]
     
-    /* urlIndex - current index for url list */
+    /// urlIndex - current index for url list
     var urlIndex: Int = 0
     
+    /// A class can contain mutiple domain url for Fried Tofu router to use.
+    /// Will switch to next url if retry decision do apply
     public init(URLs: [String]) {
         self.URLs = URLs
     }
 }
 
 public struct ResponseTuple {
+    
+    /// Data from URLSession task
     public let data: Data?
+    
+    /// URLResponse from URLSession task
     public let response: URLResponse?
+    
+    /// Error from URLSession task
     public let error: Error?
 }

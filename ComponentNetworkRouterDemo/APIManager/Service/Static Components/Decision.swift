@@ -27,7 +27,6 @@ public extension Decision {
 
 public enum DecisionAction<Req: Request> {
     
-//    case continueWithData(Data, HTTPURLResponse)
     case continueWithRequst(Req)
     case restartWith(Req, [Decision])
     case errored(Error)

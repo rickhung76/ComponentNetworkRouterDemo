@@ -8,9 +8,10 @@
 
 import Foundation
 
-public class Router: NetworkRouter {
-    private var defultDecisions: [Decision]
-        
+public class Router {
+
+    /// Router 執行節點，以 Decision 為單位執行
+    private(set) var defultDecisions: [Decision]
     
     
     /// Init router with default decision path
@@ -50,11 +51,6 @@ public class Router: NetworkRouter {
                             decisions: decisions ?? defultDecisions,
                             handler: completion)
 
-    }
-    
-    public func cancel() {
-        debugPrint("Not implement")
-//        self.task?.cancel()
     }
     
     fileprivate func handleDecision<Req: Request>(request: Req, decisions: [Decision], handler: @escaping (Result<Req.Response, Error>) -> Void) {

@@ -18,7 +18,7 @@ public enum HTTPMethod : String {
 
 public typealias HTTPHeaders = [String: String]
 
-public enum HTTPTask {
+enum HTTPTask {
     case request
     
     case requestParameters(bodyParameters: Parameters?,

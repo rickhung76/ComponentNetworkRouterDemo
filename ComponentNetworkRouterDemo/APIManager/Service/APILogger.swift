@@ -8,8 +8,8 @@
 
 import Foundation
 
-public class APILogger {
-    public static func log(request: URLRequest) {
+class APILogger {
+    static func log(request: URLRequest) {
         
         print("\n - - - - - - - - - - OUTGOING - - - - - - - - - - \n")
         defer { print("\n - - - - - - - - - -  END - - - - - - - - - - \n") }

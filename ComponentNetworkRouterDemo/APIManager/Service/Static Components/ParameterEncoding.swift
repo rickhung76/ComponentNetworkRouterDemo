@@ -10,10 +10,13 @@ import Foundation
 
 public typealias Parameters = [String: Any]
 
-public struct FormBodyParameterEncoder: ParameterEncoder {
+struct FormBodyParameterEncoder: ParameterEncoder {
+    
     public func encode(urlRequest: inout URLRequest, with parameters: Parameters) {
+        
         let allowedCharacter = CharacterSet.letters.union(.decimalDigits)
         var httpBody: String = ""
+        
         for (key,value) in parameters {
             let percentEncodingValue = (value as! String).addingPercentEncoding(withAllowedCharacters: allowedCharacter)!
             httpBody = httpBody.count == 0 ? "\(key)=\(percentEncodingValue)" : "\(httpBody)&\(key)=\(percentEncodingValue)"
@@ -26,7 +29,8 @@ public struct FormBodyParameterEncoder: ParameterEncoder {
     }
 }
 
-public struct URLParameterEncoder: ParameterEncoder {
+struct URLParameterEncoder: ParameterEncoder {
+    
     public func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws {
         
         guard let url = urlRequest.url else {
@@ -35,7 +39,8 @@ public struct URLParameterEncoder: ParameterEncoder {
         }
         
         if var urlComponents = URLComponents(url: url,
-                                             resolvingAgainstBaseURL: false), !parameters.isEmpty {
+                                             resolvingAgainstBaseURL: false),
+            !parameters.isEmpty {
             
             urlComponents.queryItems = [URLQueryItem]()
             
@@ -54,10 +59,13 @@ public struct URLParameterEncoder: ParameterEncoder {
     }
 }
 
-public struct JSONParameterEncoder: ParameterEncoder {
+struct JSONParameterEncoder: ParameterEncoder {
+    
     public func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws {
+        
         do {
-            let jsonAsData = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            let jsonAsData = try JSONSerialization.data(withJSONObject: parameters,
+                                                        options: .prettyPrinted)
             urlRequest.httpBody = jsonAsData
             if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
                 urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -69,7 +77,8 @@ public struct JSONParameterEncoder: ParameterEncoder {
     }
 }
 
-public protocol ParameterEncoder {
+protocol ParameterEncoder {
+    
     func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws
 }
 
