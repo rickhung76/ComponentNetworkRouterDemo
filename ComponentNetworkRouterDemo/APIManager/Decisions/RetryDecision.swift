@@ -40,8 +40,11 @@ public struct RetryDecision: Decision {
         request.setNextDomain()
         
         let retryDecision = RetryDecision(retryCount: retryCount - 1)
-        let newDecisions = decisions.inserting(retryDecision, at: 0)
+        
         if retryCount > 0 {
+            var newDecisions = decisions.inserting(retryDecision, at: 0)
+            newDecisions.insert(SendRequestDecision(), at: 0)
+            newDecisions.insert(BuildRequestDecision(), at: 0)
             completion(.restartWith(request, newDecisions))
         } else {
             var errRes: APIError!

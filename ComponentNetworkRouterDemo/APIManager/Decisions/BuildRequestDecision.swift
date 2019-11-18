@@ -15,7 +15,7 @@ public struct BuildRequestDecision: Decision {
     public init() {}
     
     public func shouldApply<Req>(request: Req) -> Bool where Req : Request {
-        return request.formatRequest == nil
+        return true
     }
     
     public func apply<Req>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
