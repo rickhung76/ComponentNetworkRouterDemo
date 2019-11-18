@@ -28,7 +28,6 @@
 		2B0C5476237E88EB00F99058 /* Encodable + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A62345CC220014F83E /* Encodable + Extention.swift */; };
 		2B0C5477237E88EB00F99058 /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99DA234305F300E68B7F /* Decision.swift */; };
 		2B0C5478237E88EB00F99058 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB33B2338CF2800770C1B /* HTTPTask.swift */; };
-		2B0C5479237E88EB00F99058 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB33A2338CF2800770C1B /* NetworkRouter.swift */; };
 		2B0C547A237E88EB00F99058 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB3232338CF2800770C1B /* ParameterEncoding.swift */; };
 		2B0C547B237E88EB00F99058 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB33F2338CF2800770C1B /* Request.swift */; };
 		2B0C5483237E92D600F99058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C5482237E92D600F99058 /* AppDelegate.swift */; };
@@ -38,19 +37,18 @@
 		2B0C548C237E92D700F99058 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B0C548B237E92D700F99058 /* Assets.xcassets */; };
 		2B0C548F237E92D700F99058 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B0C548D237E92D700F99058 /* LaunchScreen.storyboard */; };
 		2B0C5496237E934800F99058 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C5495237E934800F99058 /* APIManager.swift */; };
-		2B0C54A8237E93CD00F99058 /* ParseResultDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54A3237E93CD00F99058 /* ParseResultDecision.swift */; };
-		2B0C54A9237E93CD00F99058 /* RetryDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54A4237E93CD00F99058 /* RetryDecision.swift */; };
-		2B0C54AA237E93CD00F99058 /* Decisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54A5237E93CD00F99058 /* Decisions.swift */; };
-		2B0C54AB237E93CD00F99058 /* BadResponseStatusCodeDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54A6237E93CD00F99058 /* BadResponseStatusCodeDecision.swift */; };
-		2B0C54AC237E93CD00F99058 /* RefreshTokenDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54A7237E93CD00F99058 /* RefreshTokenDecision.swift */; };
 		2B0C54AD237E959600F99058 /* FriedTofu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B0C544F237E887700F99058 /* FriedTofu.framework */; };
 		2B0C54B5237E97D100F99058 /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54AF237E97D100F99058 /* BaseResponse.swift */; };
 		2B0C54B6237E97D100F99058 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54B1237E97D100F99058 /* User.swift */; };
 		2B0C54B7237E97D100F99058 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54B2237E97D100F99058 /* UserRequest.swift */; };
 		2B0C54B9237EB4AC00F99058 /* BuildRequestDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54B8237EB4AC00F99058 /* BuildRequestDecision.swift */; };
 		2B0C54BB237EBEDE00F99058 /* SendRequestDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54BA237EBEDE00F99058 /* SendRequestDecision.swift */; };
-		2B0C54BE237EC8D600F99058 /* BuildRequestDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54BC237EC8D600F99058 /* BuildRequestDecision.swift */; };
-		2B0C54BF237EC8D600F99058 /* SendRequestDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54BD237EC8D600F99058 /* SendRequestDecision.swift */; };
+		2B252E7D23826B5E008E0483 /* BuildRequestDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54B8237EB4AC00F99058 /* BuildRequestDecision.swift */; };
+		2B252E7E23826B84008E0483 /* SendRequestDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54BA237EBEDE00F99058 /* SendRequestDecision.swift */; };
+		2B252E7F23826B97008E0483 /* RetryDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99DD2343417F00E68B7F /* RetryDecision.swift */; };
+		2B252E8023826BB1008E0483 /* BadResponseStatusCodeDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99E3234354E600E68B7F /* BadResponseStatusCodeDecision.swift */; };
+		2B252E8123826BB9008E0483 /* ParseResultDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99DF2343419500E68B7F /* ParseResultDecision.swift */; };
+		2B252E8523828709008E0483 /* RefreshTokenDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B252E8423828709008E0483 /* RefreshTokenDecision.swift */; };
 		2B6A757A235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6A7579235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift */; };
 		2B6CB30D2338C54E00770C1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB30C2338C54E00770C1B /* AppDelegate.swift */; };
 		2B6CB30F2338C54E00770C1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB30E2338C54E00770C1B /* SceneDelegate.swift */; };
@@ -158,18 +156,12 @@
 		2B0C548E237E92D700F99058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B0C5490237E92D700F99058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B0C5495237E934800F99058 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		2B0C54A3237E93CD00F99058 /* ParseResultDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseResultDecision.swift; sourceTree = "<group>"; };
-		2B0C54A4237E93CD00F99058 /* RetryDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RetryDecision.swift; sourceTree = "<group>"; };
-		2B0C54A5237E93CD00F99058 /* Decisions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decisions.swift; sourceTree = "<group>"; };
-		2B0C54A6237E93CD00F99058 /* BadResponseStatusCodeDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadResponseStatusCodeDecision.swift; sourceTree = "<group>"; };
-		2B0C54A7237E93CD00F99058 /* RefreshTokenDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshTokenDecision.swift; sourceTree = "<group>"; };
 		2B0C54AF237E97D100F99058 /* BaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		2B0C54B1237E97D100F99058 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2B0C54B2237E97D100F99058 /* UserRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		2B0C54B8237EB4AC00F99058 /* BuildRequestDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildRequestDecision.swift; sourceTree = "<group>"; };
 		2B0C54BA237EBEDE00F99058 /* SendRequestDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRequestDecision.swift; sourceTree = "<group>"; };
-		2B0C54BC237EC8D600F99058 /* BuildRequestDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildRequestDecision.swift; sourceTree = "<group>"; };
-		2B0C54BD237EC8D600F99058 /* SendRequestDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendRequestDecision.swift; sourceTree = "<group>"; };
+		2B252E8423828709008E0483 /* RefreshTokenDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshTokenDecision.swift; sourceTree = "<group>"; };
 		2B6A7577235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComponentNetworkRouterDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6A7579235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentNetworkRouterDemoTests.swift; sourceTree = "<group>"; };
 		2B6A757B235EF82C00E50ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -305,33 +297,17 @@
 		2B0C5494237E932400F99058 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
-				2B0C54A2237E93CD00F99058 /* Decisions */,
+				2B252E83238286D2008E0483 /* Decisions */,
 				2B0C54AE237E97D100F99058 /* Models */,
 				2B0C5495237E934800F99058 /* APIManager.swift */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
 		};
-		2B0C54A2237E93CD00F99058 /* Decisions */ = {
-			isa = PBXGroup;
-			children = (
-				2B0C54BC237EC8D600F99058 /* BuildRequestDecision.swift */,
-				2B0C54BD237EC8D600F99058 /* SendRequestDecision.swift */,
-				2B0C54A6237E93CD00F99058 /* BadResponseStatusCodeDecision.swift */,
-				2B0C54A5237E93CD00F99058 /* Decisions.swift */,
-				2B0C54A3237E93CD00F99058 /* ParseResultDecision.swift */,
-				2B0C54A7237E93CD00F99058 /* RefreshTokenDecision.swift */,
-				2B0C54A4237E93CD00F99058 /* RetryDecision.swift */,
-			);
-			path = Decisions;
-			sourceTree = "<group>";
-		};
 		2B0C54AE237E97D100F99058 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2B0C54B3237E97D100F99058 /* BalanceDetail */,
 				2B0C54B0237E97D100F99058 /* User */,
-				2B0C54B4237E97D100F99058 /* UserLogin */,
 				2B0C54AF237E97D100F99058 /* BaseResponse.swift */,
 			);
 			path = Models;
@@ -346,18 +322,12 @@
 			path = User;
 			sourceTree = "<group>";
 		};
-		2B0C54B3237E97D100F99058 /* BalanceDetail */ = {
+		2B252E83238286D2008E0483 /* Decisions */ = {
 			isa = PBXGroup;
 			children = (
+				2B252E8423828709008E0483 /* RefreshTokenDecision.swift */,
 			);
-			path = BalanceDetail;
-			sourceTree = "<group>";
-		};
-		2B0C54B4237E97D100F99058 /* UserLogin */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UserLogin;
+			path = Decisions;
 			sourceTree = "<group>";
 		};
 		2B6A7578235EF82C00E50ADE /* ComponentNetworkRouterDemoTests */ = {
@@ -686,13 +656,17 @@
 			files = (
 				2B0C5473237E88E500F99058 /* APIError.swift in Sources */,
 				2B0C5474237E88E500F99058 /* APILogger.swift in Sources */,
+				2B252E8023826BB1008E0483 /* BadResponseStatusCodeDecision.swift in Sources */,
+				2B252E7D23826B5E008E0483 /* BuildRequestDecision.swift in Sources */,
 				2B0C5477237E88EB00F99058 /* Decision.swift in Sources */,
 				2B0C5476237E88EB00F99058 /* Encodable + Extention.swift in Sources */,
 				2B0C5478237E88EB00F99058 /* HTTPTask.swift in Sources */,
-				2B0C5479237E88EB00F99058 /* NetworkRouter.swift in Sources */,
 				2B0C547A237E88EB00F99058 /* ParameterEncoding.swift in Sources */,
+				2B252E8123826BB9008E0483 /* ParseResultDecision.swift in Sources */,
 				2B0C547B237E88EB00F99058 /* Request.swift in Sources */,
+				2B252E7F23826B97008E0483 /* RetryDecision.swift in Sources */,
 				2B0C5475237E88E500F99058 /* Router.swift in Sources */,
+				2B252E7E23826B84008E0483 /* SendRequestDecision.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,16 +682,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B0C54BE237EC8D600F99058 /* BuildRequestDecision.swift in Sources */,
 				2B0C5496237E934800F99058 /* APIManager.swift in Sources */,
 				2B0C5483237E92D600F99058 /* AppDelegate.swift in Sources */,
-				2B0C54BF237EC8D600F99058 /* SendRequestDecision.swift in Sources */,
-				2B0C54AB237E93CD00F99058 /* BadResponseStatusCodeDecision.swift in Sources */,
 				2B0C54B5237E97D100F99058 /* BaseResponse.swift in Sources */,
-				2B0C54AA237E93CD00F99058 /* Decisions.swift in Sources */,
-				2B0C54A8237E93CD00F99058 /* ParseResultDecision.swift in Sources */,
-				2B0C54AC237E93CD00F99058 /* RefreshTokenDecision.swift in Sources */,
-				2B0C54A9237E93CD00F99058 /* RetryDecision.swift in Sources */,
+				2B252E8523828709008E0483 /* RefreshTokenDecision.swift in Sources */,
 				2B0C5485237E92D600F99058 /* SceneDelegate.swift in Sources */,
 				2B0C54B6237E97D100F99058 /* User.swift in Sources */,
 				2B0C54B7237E97D100F99058 /* UserRequest.swift in Sources */,
