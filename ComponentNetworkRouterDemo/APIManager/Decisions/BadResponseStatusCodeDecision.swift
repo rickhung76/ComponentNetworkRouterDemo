@@ -8,8 +8,11 @@
 
 import Foundation
 
-struct BadResponseStatusCodeDecision: Decision {
-    func shouldApply<Req: Request>(request: Req) -> Bool {
+public struct BadResponseStatusCodeDecision: Decision {
+    
+    public init() {}
+    
+    public func shouldApply<Req: Request>(request: Req) -> Bool {
         guard let response = request.response,
             let httpUrlResponse = response.response as? HTTPURLResponse else {
             return true
@@ -17,7 +20,7 @@ struct BadResponseStatusCodeDecision: Decision {
         return !(200...299).contains(httpUrlResponse.statusCode)
     }
     
-    func apply<Req: Request>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
+    public func apply<Req: Request>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
         guard let response = request.response,
             let httpUrlResponse = response.response as? HTTPURLResponse else {
             let errRes = APIError(APIErrorCode.missingResponse.rawValue,

@@ -8,14 +8,17 @@
 
 import Foundation
 
-struct BuildRequestDecision: Decision {
-    private var timeoutInterval = 10.0
+public struct BuildRequestDecision: Decision {
     
-    func shouldApply<Req>(request: Req) -> Bool where Req : Request {
+    let timeoutInterval = 10.0
+    
+    public init() {}
+    
+    public func shouldApply<Req>(request: Req) -> Bool where Req : Request {
         return request.formatRequest == nil
     }
     
-    func apply<Req>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
+    public func apply<Req>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
         
         do {
             var request = request

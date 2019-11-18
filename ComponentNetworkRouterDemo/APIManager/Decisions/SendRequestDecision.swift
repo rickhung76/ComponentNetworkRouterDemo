@@ -8,13 +8,22 @@
 
 import Foundation
 
-struct SendRequestDecision: Decision {
+public struct SendRequestDecision: Decision {
     
-    func shouldApply<Req>(request: Req) -> Bool where Req : Request {
+    /*
+     SendRequestDecision
+     將 Request 內的 formatRequest: URLRequest 傳入 URLSession 執行。
+     */
+    public init() {}
+    
+    
+    /// SendRequestDecision
+    /// - Parameter request: Request Protocol 的 Request
+    public func shouldApply<Req>(request: Req) -> Bool where Req : Request {
         return true
     }
     
-    func apply<Req>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
+    public func apply<Req>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
         
         guard let formatRequest = request.formatRequest else {
             let err = APIError(APIErrorCode.missingRequest.rawValue,

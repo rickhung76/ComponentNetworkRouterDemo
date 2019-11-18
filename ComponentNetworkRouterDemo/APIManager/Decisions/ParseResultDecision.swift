@@ -8,12 +8,15 @@
 
 import Foundation
 
-struct ParseResultDecision: Decision {
-    func shouldApply<Req: Request>(request: Req) -> Bool {
+public struct ParseResultDecision: Decision {
+    
+    public init() {}
+    
+    public func shouldApply<Req: Request>(request: Req) -> Bool {
         return true
     }
 
-    func apply<Req: Request>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
+    public func apply<Req: Request>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
         guard let response = request.response else {
             let errRes = APIError(APIErrorCode.missingResponse.rawValue,
                                   APIErrorCode.missingResponse.description)

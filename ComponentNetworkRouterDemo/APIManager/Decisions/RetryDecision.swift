@@ -8,10 +8,15 @@
 
 import Foundation
 
-struct RetryDecision: Decision {
+public struct RetryDecision: Decision {
+    
     let retryCount: Int
     
-    func shouldApply<Req>(request: Req) -> Bool where Req : Request {
+    public init(retryCount: Int) {
+        self.retryCount = retryCount
+    }
+    
+    public func shouldApply<Req>(request: Req) -> Bool where Req : Request {
         guard let response = request.response,
             response.error == nil,
             let httpUrlResponse = response.response as? HTTPURLResponse,
@@ -23,7 +28,7 @@ struct RetryDecision: Decision {
         return !isStatusCodeValid
     }
     
-    func apply<Req>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
+    public func apply<Req>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
         guard let response = request.response else {
             let errRes = APIError(APIErrorCode.missingResponse.rawValue,
                                   APIErrorCode.missingResponse.description)

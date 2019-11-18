@@ -11,10 +11,39 @@ import Foundation
 public class Router: NetworkRouter {
     private var defultDecisions: [Decision]
         
+    
+    
+    /// Init router with default decision path
+    /// - defultDecisions = 
+    /// -   [
+    /// -       BuildRequestDecision(),
+    /// -       SendRequestDecision(),
+    /// -       RetryDecision(retryCount: 3),
+    /// -       BadResponseStatusCodeDecision(),
+    /// -       ParseResultDecision()
+    /// -   ]
+    public init() {
+        self.defultDecisions = [
+            BuildRequestDecision(),
+            SendRequestDecision(),
+            RetryDecision(retryCount: 3),
+            BadResponseStatusCodeDecision(),
+            ParseResultDecision()
+        ]
+    }
+    
+    
+    /// Init router with custom decision path
+    /// - Parameter decisions: custom decision path
     public init(with decisions: [Decision]) {
         self.defultDecisions = decisions
     }
     
+    
+    /// Router send request
+    /// - Parameter request: The Struct confirms Request protocol
+    /// - Parameter decisions: Decision path for the given request. It's optional.
+    /// - Parameter completion: Completion handler
     public func send<T: Request>(_ request: T, decisions: [Decision]? = nil, completion: @escaping (Result<T.Response, Error>)->()) {
         
         self.handleDecision(request: request,
