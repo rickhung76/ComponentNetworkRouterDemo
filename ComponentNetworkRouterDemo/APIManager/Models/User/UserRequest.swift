@@ -8,13 +8,9 @@
 
 import Foundation
 
-struct UserRequest: Request {
+class UserRequest: Request {
     
     typealias Response = BaseResponse<[User]>
-    
-    var formatRequest: URLRequest? = nil
-    
-    var response: ResponseTuple? = nil
     
     var path: String {
         return "/search/users"
@@ -48,4 +44,14 @@ struct UserRequest: Request {
     
     let userName: String
     let page: Int
+    
+    init(userName: String, page: Int) {
+        self.userName = userName
+        self.page = page
+    }
+    
+    init() {
+        self.userName = ""
+        self.page = 0
+    }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import FriedTofu
 
-struct UserRequest: Request {
+class UserRequest: Request {
     
     typealias Response = BaseResponse<[User]>
     
@@ -49,4 +49,9 @@ struct UserRequest: Request {
     
     let userName: String
     let page: Int
+    
+    init(userName: String, page: Int) {
+        self.userName = userName
+        self.page = page
+    }
 }

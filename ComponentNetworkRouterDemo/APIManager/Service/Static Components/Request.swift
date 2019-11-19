@@ -8,7 +8,12 @@
 
 import Foundation
 
-public protocol Request: EndPoint, DomainChangable {
+fileprivate enum AssociatedKeys {
+    static var formatRequest = "formatRequest"
+    static var response = "response"
+}
+
+public protocol Request: class, EndPoint, DomainChangable {
     
     /// Response model type
     associatedtype Response: Decodable
@@ -24,15 +29,36 @@ public protocol Request: EndPoint, DomainChangable {
     var response: ResponseTuple? { get set }
 }
 
+extension Request {
+    
+    var formatRequest: URLRequest? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.formatRequest) as? URLRequest
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.formatRequest, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    var response: ResponseTuple? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.response) as? ResponseTuple
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.response, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+}
+
 public extension Request {
     
     var baseURL: String { return baseURL() }
     
-    mutating func setFormatRequest(_ request: URLRequest) {
+    func setFormatRequest(_ request: URLRequest) {
         self.formatRequest = request
     }
     
-    mutating func setResponse(_ data: Data?, response: URLResponse?, error: Error?){
+    func setResponse(_ data: Data?, response: URLResponse?, error: Error?){
         self.response = ResponseTuple(data: data,
                                       response: response,
                                       error: error)
