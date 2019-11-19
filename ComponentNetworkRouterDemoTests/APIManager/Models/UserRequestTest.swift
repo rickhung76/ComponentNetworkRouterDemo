@@ -9,7 +9,12 @@
 import Foundation
 
 struct UserRequestTest: Request {
+    
     typealias Response = BaseResponse<User>
+    
+    var formatRequest: URLRequest? = nil
+       
+    var response: ResponseTuple? = nil
     
     var path: String {
         return "/users"

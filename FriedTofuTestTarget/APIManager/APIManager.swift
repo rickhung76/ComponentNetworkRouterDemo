@@ -13,15 +13,16 @@ class APIManager {
     
     static let shared = APIManager()
     
-    private let decisions: [Decision] =
-        [
-            BuildRequestDecision(),
-            SendRequestDecision(),
-            RetryDecision(retryCount: 3),
-            RefreshTokenDecision(apiClosure: nil),
-            BadResponseStatusCodeDecision(),
-            ParseResultDecision()
-        ]
+//    private let decisions: [Decision] =
+//        [
+//            BuildRequestDecision(),
+//            SendRequestDecision(),
+//            RetryDecision(retryCount: 3),
+//            RefreshTokenDecision(apiClosure: nil),
+//            BadResponseStatusCodeDecision(),
+//            ParseResultDecision()
+//        ]
+//    lazy var router = Router(with: decisions)
     
     lazy var router = Router()
 }

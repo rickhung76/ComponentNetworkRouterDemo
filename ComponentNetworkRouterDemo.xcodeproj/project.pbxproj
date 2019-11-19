@@ -49,6 +49,9 @@
 		2B252E8023826BB1008E0483 /* BadResponseStatusCodeDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99E3234354E600E68B7F /* BadResponseStatusCodeDecision.swift */; };
 		2B252E8123826BB9008E0483 /* ParseResultDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99DF2343419500E68B7F /* ParseResultDecision.swift */; };
 		2B252E8523828709008E0483 /* RefreshTokenDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B252E8423828709008E0483 /* RefreshTokenDecision.swift */; };
+		2B252E882383897B008E0483 /* BuildRequestDecisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B252E872383897B008E0483 /* BuildRequestDecisionTests.swift */; };
+		2B252E8923838BCA008E0483 /* BuildRequestDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54B8237EB4AC00F99058 /* BuildRequestDecision.swift */; };
+		2B252E8A23838D18008E0483 /* SendRequestDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54BA237EBEDE00F99058 /* SendRequestDecision.swift */; };
 		2B6A757A235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6A7579235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift */; };
 		2B6CB30D2338C54E00770C1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB30C2338C54E00770C1B /* AppDelegate.swift */; };
 		2B6CB30F2338C54E00770C1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB30E2338C54E00770C1B /* SceneDelegate.swift */; };
@@ -162,6 +165,7 @@
 		2B0C54B8237EB4AC00F99058 /* BuildRequestDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildRequestDecision.swift; sourceTree = "<group>"; };
 		2B0C54BA237EBEDE00F99058 /* SendRequestDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRequestDecision.swift; sourceTree = "<group>"; };
 		2B252E8423828709008E0483 /* RefreshTokenDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshTokenDecision.swift; sourceTree = "<group>"; };
+		2B252E872383897B008E0483 /* BuildRequestDecisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildRequestDecisionTests.swift; sourceTree = "<group>"; };
 		2B6A7577235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComponentNetworkRouterDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6A7579235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentNetworkRouterDemoTests.swift; sourceTree = "<group>"; };
 		2B6A757B235EF82C00E50ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -417,6 +421,7 @@
 		2BD1B1D623697F22003C7215 /* Decsions */ = {
 			isa = PBXGroup;
 			children = (
+				2B252E872383897B008E0483 /* BuildRequestDecisionTests.swift */,
 				2BD1B1D723697F47003C7215 /* RefreshTokenDecisionTests.swift */,
 			);
 			path = Decsions;
@@ -702,6 +707,8 @@
 				2BD1B1E623699C11003C7215 /* ApiManagerTests.swift in Sources */,
 				2BD1B1EF23699CBA003C7215 /* BadResponseStatusCodeDecision.swift in Sources */,
 				2BD1B1E323699B8E003C7215 /* BaseResponse.swift in Sources */,
+				2B252E8923838BCA008E0483 /* BuildRequestDecision.swift in Sources */,
+				2B252E882383897B008E0483 /* BuildRequestDecisionTests.swift in Sources */,
 				2B6A757A235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift in Sources */,
 				2BD1B1DB23697F75003C7215 /* Decision.swift in Sources */,
 				2BD1B1ED23699CAC003C7215 /* Decisions.swift in Sources */,
@@ -715,6 +722,7 @@
 				2BD1B1EE23699CB1003C7215 /* RetryDecision.swift in Sources */,
 				2BD1B1F1236ABCDB003C7215 /* Router.swift in Sources */,
 				2BD1B1E923699C6F003C7215 /* RouterTests.swift in Sources */,
+				2B252E8A23838D18008E0483 /* SendRequestDecision.swift in Sources */,
 				2BD1B1E423699B92003C7215 /* User.swift in Sources */,
 				2BD1B1E223699B67003C7215 /* UserRequestTest.swift in Sources */,
 			);

@@ -10,7 +10,7 @@ import XCTest
 
 class RefreshTokenDecisionTests: XCTestCase {
 
-    var decision = RefreshTokenDecision()
+    var decision = RefreshTokenDecision(apiClosure: nil)
     let req = UserRequestTest()
     
     override func setUp() {
@@ -24,18 +24,18 @@ class RefreshTokenDecisionTests: XCTestCase {
 
     func testNilShouldApply() {
         
-        let shouldApply = decision.shouldApply(request: req, data: nil, response: nil, error: nil)
+        let shouldApply = decision.shouldApply(request: req)
         XCTAssertEqual(shouldApply, true)
     }
     
     func testErrorShouldApply() {
         
-        let shouldApply = decision.shouldApply(request: req, data: nil, response: nil, error: nil)
+        let shouldApply = decision.shouldApply(request: req)
         XCTAssertEqual(shouldApply, true)
     }
     
     func testApply() {
-        decision.apply(request: req, data: nil, response: nil, error: nil, decisions: []) { (action) in
+        decision.apply(request: req, decisions: []) { (action) in
             switch action {
             case .restartWith(let request , let decisions):
                 XCTAssert(true)
