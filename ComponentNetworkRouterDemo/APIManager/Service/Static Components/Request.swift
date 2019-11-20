@@ -84,7 +84,7 @@ public protocol EndPoint {
 
 public protocol DomainChangable {
     
-    var multiDomain: MultiDomain { get }
+    var multiDomain: MultiDomain { get set }
     
     func baseURL() -> String
     
