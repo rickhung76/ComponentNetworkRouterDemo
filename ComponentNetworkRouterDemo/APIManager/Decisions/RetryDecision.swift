@@ -29,14 +29,7 @@ public struct RetryDecision: Decision {
     }
     
     public func apply<Req>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
-        guard let response = request.response else {
-            let errRes = APIError(APIErrorCode.missingResponse.rawValue,
-                                  APIErrorCode.missingResponse.description)
-            completion(.errored(errRes))
-            return
-        }
         
-        var request = request
         request.setNextDomain()
         
         let retryDecision = RetryDecision(retryCount: retryCount - 1)
@@ -49,6 +42,13 @@ public struct RetryDecision: Decision {
         } else {
             var errRes: APIError!
             
+            guard let response = request.rawResponse else {
+                errRes = APIError(APIErrorCode.missingResponse.rawValue,
+                                      APIErrorCode.missingResponse.description)
+                completion(.errored(errRes))
+                return
+            }
+
             if let error = response.error {
                 errRes = APIError(APIErrorCode.clientError.rawValue,
                                       error.localizedDescription)

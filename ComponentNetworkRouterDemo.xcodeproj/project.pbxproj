@@ -52,6 +52,7 @@
 		2B252E882383897B008E0483 /* BuildRequestDecisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B252E872383897B008E0483 /* BuildRequestDecisionTests.swift */; };
 		2B252E8923838BCA008E0483 /* BuildRequestDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54B8237EB4AC00F99058 /* BuildRequestDecision.swift */; };
 		2B252E8A23838D18008E0483 /* SendRequestDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0C54BA237EBEDE00F99058 /* SendRequestDecision.swift */; };
+		2B252EB123851A3B008E0483 /* RetryDecisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B252EB023851A3B008E0483 /* RetryDecisionTests.swift */; };
 		2B6A757A235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6A7579235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift */; };
 		2B6CB30D2338C54E00770C1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB30C2338C54E00770C1B /* AppDelegate.swift */; };
 		2B6CB30F2338C54E00770C1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB30E2338C54E00770C1B /* SceneDelegate.swift */; };
@@ -166,6 +167,7 @@
 		2B0C54BA237EBEDE00F99058 /* SendRequestDecision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRequestDecision.swift; sourceTree = "<group>"; };
 		2B252E8423828709008E0483 /* RefreshTokenDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshTokenDecision.swift; sourceTree = "<group>"; };
 		2B252E872383897B008E0483 /* BuildRequestDecisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildRequestDecisionTests.swift; sourceTree = "<group>"; };
+		2B252EB023851A3B008E0483 /* RetryDecisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryDecisionTests.swift; sourceTree = "<group>"; };
 		2B6A7577235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComponentNetworkRouterDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B6A7579235EF82C00E50ADE /* ComponentNetworkRouterDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentNetworkRouterDemoTests.swift; sourceTree = "<group>"; };
 		2B6A757B235EF82C00E50ADE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 			children = (
 				2B252E872383897B008E0483 /* BuildRequestDecisionTests.swift */,
 				2BD1B1D723697F47003C7215 /* RefreshTokenDecisionTests.swift */,
+				2B252EB023851A3B008E0483 /* RetryDecisionTests.swift */,
 			);
 			path = Decsions;
 			sourceTree = "<group>";
@@ -720,6 +723,7 @@
 				2BD1B1D823697F47003C7215 /* RefreshTokenDecisionTests.swift in Sources */,
 				2BD1B1DA23697F6C003C7215 /* Request.swift in Sources */,
 				2BD1B1EE23699CB1003C7215 /* RetryDecision.swift in Sources */,
+				2B252EB123851A3B008E0483 /* RetryDecisionTests.swift in Sources */,
 				2BD1B1F1236ABCDB003C7215 /* Router.swift in Sources */,
 				2BD1B1E923699C6F003C7215 /* RouterTests.swift in Sources */,
 				2B252E8A23838D18008E0483 /* SendRequestDecision.swift in Sources */,
