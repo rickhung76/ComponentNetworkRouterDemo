@@ -88,7 +88,7 @@ public protocol DomainChangable {
     
     func baseURL() -> String
     
-    mutating func setNextDomain()
+    func setNextDomain()
 }
 
 public extension DomainChangable {
@@ -100,7 +100,6 @@ public extension DomainChangable {
         return multiDomain.URLs[multiDomain.urlIndex]
     }
     
-    mutating
     func setNextDomain() {
         multiDomain.urlIndex = (multiDomain.urlIndex + 1) % multiDomain.URLs.count
     }

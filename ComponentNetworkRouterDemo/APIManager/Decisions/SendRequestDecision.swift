@@ -33,7 +33,6 @@ public struct SendRequestDecision: Decision {
         }
 
         let task = URLSession.shared.dataTask(with: formatRequest, completionHandler: { data, response, error in
-            var request = request
             request.setResponse(data, response: response, error: error)
             completion(.continueWithRequst(request))
         })

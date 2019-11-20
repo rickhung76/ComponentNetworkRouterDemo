@@ -21,7 +21,6 @@ public struct BuildRequestDecision: Decision {
     public func apply<Req>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
         
         do {
-            var request = request
             let formatRequest = try buildRequest(from: request)
             request.setFormatRequest(formatRequest)
             APILogger.log(request: formatRequest)

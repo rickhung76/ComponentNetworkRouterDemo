@@ -17,7 +17,7 @@ public struct RetryDecision: Decision {
     }
     
     public func shouldApply<Req>(request: Req) -> Bool where Req : Request {
-        guard let response = request.response,
+        guard let response = request.rawResponse,
             response.error == nil,
             let httpUrlResponse = response.response as? HTTPURLResponse,
             response.data != nil else {
