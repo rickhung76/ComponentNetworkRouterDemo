@@ -15,13 +15,13 @@ class BuildRequestDecisionTests: XCTestCase {
         
     }
     
-    struct TestRequest: Request {
+    class TestRequest: Request {
         
         typealias Response = TestResponseModel
         
         var formatRequest: URLRequest? = nil
         
-        var response: ResponseTuple? = nil
+        var rawResponse: RawResponseTuple? = nil
         
         var path: String {
             return "/test"

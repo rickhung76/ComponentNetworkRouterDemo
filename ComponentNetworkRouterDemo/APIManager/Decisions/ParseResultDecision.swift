@@ -17,7 +17,7 @@ public struct ParseResultDecision: Decision {
     }
 
     public func apply<Req: Request>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
-        guard let response = request.response else {
+        guard let response = request.rawResponse else {
             let errRes = APIError(APIErrorCode.missingResponse.rawValue,
                                   APIErrorCode.missingResponse.description)
             completion(.errored(errRes))

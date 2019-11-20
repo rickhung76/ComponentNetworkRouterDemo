@@ -26,7 +26,7 @@ public protocol Request: class, EndPoint, DomainChangable {
     
     /// The ResponseTuple object, will be assigned by send request decision.
     /// - Give nil at initial state is fine.
-    var response: ResponseTuple? { get set }
+    var rawResponse: RawResponseTuple? { get set }
 }
 
 extension Request {
@@ -36,16 +36,16 @@ extension Request {
             return objc_getAssociatedObject(self, &AssociatedKeys.formatRequest) as? URLRequest
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.formatRequest, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.formatRequest, newValue, .OBJC_ASSOCIATION_RETAIN)
         }
     }
     
-    var response: ResponseTuple? {
+    var rawResponse: RawResponseTuple? {
         get {
-            return objc_getAssociatedObject(self, &AssociatedKeys.response) as? ResponseTuple
+            return objc_getAssociatedObject(self, &AssociatedKeys.response) as? RawResponseTuple
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.response, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.response, newValue, .OBJC_ASSOCIATION_RETAIN)
         }
     }
 }
@@ -59,9 +59,9 @@ public extension Request {
     }
     
     func setResponse(_ data: Data?, response: URLResponse?, error: Error?){
-        self.response = ResponseTuple(data: data,
-                                      response: response,
-                                      error: error)
+        self.rawResponse = RawResponseTuple(data: data,
+                                            response: response,
+                                            error: error)
     }
 }
 
@@ -121,7 +121,7 @@ public class MultiDomain {
     }
 }
 
-public struct ResponseTuple {
+public struct RawResponseTuple {
     
     /// Data from URLSession task
     public let data: Data?

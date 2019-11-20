@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct UserRequestTest: Request {
+class UserRequestTest: Request {
     
     typealias Response = BaseResponse<User>
     
     var formatRequest: URLRequest? = nil
        
-    var response: ResponseTuple? = nil
+    var rawResponse: RawResponseTuple? = nil
     
     var path: String {
         return "/users"

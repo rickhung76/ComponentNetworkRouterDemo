@@ -9,9 +9,7 @@
 import Foundation
 
 public protocol Decision {
-    
-    var description: String {get}
-    
+        
     func shouldApply<Req: Request>(request: Req) -> Bool
     
     func apply<Req: Request>(
@@ -20,7 +18,7 @@ public protocol Decision {
         completion: @escaping (DecisionAction<Req>) -> Void)
 }
 
-public extension Decision {
+extension Decision {
     
     var description: String { return "\(type(of: self))" }
 }
