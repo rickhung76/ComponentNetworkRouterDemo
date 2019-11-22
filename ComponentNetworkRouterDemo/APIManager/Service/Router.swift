@@ -13,8 +13,15 @@ public class Router {
     /// Router 執行節點，以 Decision 為單位執行
     private(set) var defultDecisions: [Decision]
     
-    
-    /// Init router with default decision path
+    /// Init router with default sequence decision path.
+    /// If all decisions pass successfully,
+    /// the response model defined Request porotocol will be obtained;
+    /// Otherwise, if either decision fails, an error with APIError object will be returned.
+    ///
+    /// For Example:
+    /// If it fails to decode data inside ParseResultDecision,
+    /// the decision will return APIError with APIErrorCode: "unableToDecode".
+    ///
     /// - defultDecisions = 
     /// -   [
     /// -       BuildRequestDecision(),
@@ -34,8 +41,9 @@ public class Router {
     }
     
     
-    /// Init router with custom decision path
-    /// - Parameter decisions: custom decision path
+    /// Init router with custom decision path.
+    ///
+    /// - Parameter decisions: The order in the given array will be the excution order.
     public init(with decisions: [Decision]) {
         self.defultDecisions = decisions
     }
