@@ -13,10 +13,6 @@ class UserRequest: Request {
     
     typealias Response = BaseResponse<[User]>
     
-    var formatRequest: URLRequest? = nil
-    
-    var response: ResponseTuple? = nil
-    
     var path: String {
         return "/search/users"
     }
@@ -43,9 +39,7 @@ class UserRequest: Request {
         return ["Accept" : "application/vnd.github.v3+json"]
     }
     
-    var multiDomain: MultiDomain {
-        return MultiDomain(URLs: ["https://api.github.com"])
-    }
+    var multiDomain: MultiDomain = MultiDomain(URLs: ["https://api.github.com"])
     
     let userName: String
     let page: Int

@@ -29,7 +29,9 @@ public protocol Request: class, EndPoint, DomainChangable {
     var rawResponse: RawResponseTuple? { get set }
 }
 
-extension Request {
+public extension Request {
+    
+    var baseURL: String { return baseURL() }
     
     var formatRequest: URLRequest? {
         get {
@@ -48,11 +50,6 @@ extension Request {
             objc_setAssociatedObject(self, &AssociatedKeys.response, newValue, .OBJC_ASSOCIATION_RETAIN)
         }
     }
-}
-
-public extension Request {
-    
-    var baseURL: String { return baseURL() }
     
     func setFormatRequest(_ request: URLRequest) {
         self.formatRequest = request

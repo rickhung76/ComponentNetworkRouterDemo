@@ -38,9 +38,7 @@ class UserRequest: Request {
         return ["Accept" : "application/vnd.github.v3+json"]
     }
     
-    var multiDomain: MultiDomain {
-        return MultiDomain(URLs: ["https://api.github.com"])
-    }
+    var multiDomain: MultiDomain = MultiDomain(URLs: ["https://api.github.com"])
     
     let userName: String
     let page: Int

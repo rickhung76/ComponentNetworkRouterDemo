@@ -15,7 +15,7 @@ struct RefreshTokenDecision: Decision {
     func shouldApply<Req: Request>(request: Req) -> Bool  {
         return true //TODO: CLOSE
         
-        guard let response = request.response,
+        guard let response = request.rawResponse,
             let httpUrlResponse = response.response as? HTTPURLResponse else {
             return true
         }
