@@ -48,7 +48,7 @@ public enum DecisionAction<Req: Request> {
     /*** 該 Decision 要求當前 Request 需重新執行，並指定一系列 Decision 邏輯單元為新執行流程 */
     case restartWith(Req, [Decision])
     /*** 該 Decision FAIL，必須返回一錯誤訊息並終止流程 */
-    case errored(Error)
+    case errored(APIError)
     /*** 該 Decision PASS，且為流程中最後一個邏輯單元，並傳出 Reponse 轉換出的 Data Model 返回 Router
      * 並結束這一系列流程 */
     case done(Req.Response)

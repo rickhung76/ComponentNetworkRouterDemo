@@ -49,7 +49,7 @@ class ApiManager {
 }
 
 extension ApiManager {
-    func requestGithubSearchUser(text: String, page: Int, completion: @escaping((Result<User,Error>)->())) {
+    func requestGithubSearchUser(text: String, page: Int, completion: @escaping((Result<User,APIError>)->())) {
         let req = UserRequest(userName: text, page: page)
         router.send(req) { (result) in
             print(result)

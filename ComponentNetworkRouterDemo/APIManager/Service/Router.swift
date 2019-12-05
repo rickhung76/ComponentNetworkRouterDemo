@@ -53,7 +53,7 @@ public class Router {
     /// - Parameter request: The Struct confirms Request protocol
     /// - Parameter decisions: Decision path for the given request. It's optional.
     /// - Parameter completion: Completion handler
-    public func send<T: Request>(_ request: T, decisions: [Decision]? = nil, completion: @escaping (Result<T.Response, Error>)->()) {
+    public func send<T: Request>(_ request: T, decisions: [Decision]? = nil, completion: @escaping (Result<T.Response, APIError>) -> Void) {
         
         self.handleDecision(request: request,
                             decisions: decisions ?? defultDecisions,
@@ -61,7 +61,7 @@ public class Router {
 
     }
     
-    fileprivate func handleDecision<Req: Request>(request: Req, decisions: [Decision], handler: @escaping (Result<Req.Response, Error>) -> Void) {
+    fileprivate func handleDecision<Req: Request>(request: Req, decisions: [Decision], handler: @escaping (Result<Req.Response, APIError>) -> Void) {
         guard !decisions.isEmpty else {
             fatalError("No decision left but did not reach a stop.")
         }
