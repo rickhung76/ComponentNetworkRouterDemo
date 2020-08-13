@@ -8,11 +8,9 @@
 
 import Foundation
 
-struct Decisions {
-    
-    static var shared = Decisions()
-    
-    lazy var defaults: [Decision] =
+enum Decisions {
+        
+    static let defaults: [Decision] =
         [
             BuildRequestDecision(),
             SendRequestDecision(),
@@ -22,11 +20,17 @@ struct Decisions {
             ParseResultDecision()
         ]
     
-    lazy var refreshToken: [Decision] =
+    static let refreshToken: [Decision] =
         [
             RetryDecision(retryCount: 3),
             BadResponseStatusCodeDecision(),
             ParseResultDecision()
+        ]
+    
+    static let errorHandler: [Decision] =
+        [
+            RefreshTokenDecision(apiClosure: nil),
+            RetryDecision(retryCount: 3)
         ]
 }
 
