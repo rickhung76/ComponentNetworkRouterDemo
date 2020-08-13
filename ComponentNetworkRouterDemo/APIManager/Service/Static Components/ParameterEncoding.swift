@@ -46,16 +46,11 @@ struct URLParameterEncoder: ParameterEncoder {
             
             for (key,value) in parameters {
                 let queryItem = URLQueryItem(name: key,
-                                             value: "\(value)".addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))
+                                             value: "\(value)")
                 urlComponents.queryItems?.append(queryItem)
             }
             urlRequest.url = urlComponents.url
         }
-        
-        if urlRequest.value(forHTTPHeaderField: "Content-Type") == nil {
-            urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        }
-        
     }
 }
 
