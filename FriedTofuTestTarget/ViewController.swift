@@ -18,8 +18,8 @@ class ViewController: UIViewController {
     @IBAction func btnPressed(_ sender: Any) {
         APIManager.shared.requestGithubSearchUser(text: "onevcat", page: 0) { (result) in
             switch result {
-            case .success(let user):
-                print(user)
+            case .success(let usersModel):
+                print(usersModel.items)
             case .failure(let error):
                 print(error)
             }

@@ -10,24 +10,19 @@ import Foundation
 
 class ApiManager {
     static let shared = ApiManager()
-    let router = Router(with: Decisions.shared.defaults)
-
-    lazy var domains: [String] = {
-        return ["https://www.zxfast.com"]
-    }()
+    let router = Router(with: Decisions.defaults)
     
-    
-    private func handleTokenError(_ msg: String) {
-        DispatchQueue.main.async {
-            //TODO: handleTokenError
-        }
-    }
+//    private func handleTokenError(_ msg: String) {
+//        DispatchQueue.main.async {
+//            //TODO: handleTokenError
+//        }
+//    }
     
 //    func transformResponse<T:Decodable>(_ result: Result<BaseResponse<T>, Error>, completion: @escaping (_ result: Result<T, APIError>) -> ()) {
 //        switch result {
 //        case .success(let apiResponse):
 //            do {
-//                if let data = apiResponse.data  {
+//                if let data = apiResponse.items  {
 //                    completion(.success(data))
 //                }
 //                else {
@@ -41,7 +36,7 @@ class ApiManager {
 //                completion(.failure(err))
 //            }
 //        case .failure(let error):
-//            let responseErr = (error as? APIError) ?? APIError(APIErrorCode.unknowError.rawValue,
+//            let responseErr = (error as? APIError) ?? APIError(APIErrorCode.unknownError.rawValue,
 //                                                               error.localizedDescription)
 //            completion(.failure(responseErr))
 //        }
@@ -49,13 +44,15 @@ class ApiManager {
 }
 
 extension ApiManager {
-    func requestGithubSearchUser(text: String, page: Int, completion: @escaping((Result<User,APIError>)->())) {
+    func requestGithubSearchUser(text: String,
+                                 page: Int,
+                                 completion: @escaping((Result<BaseResponse<[User]>,APIError>)->())) {
         let req = UserRequest(userName: text, page: page)
         router.send(req) { (result) in
             print(result)
             switch result {
-            case .success(let users):
-                print(users)
+            case .success(let model):
+                completion(.success(model))
             case .failure(let error):
                 print(error)
             }
