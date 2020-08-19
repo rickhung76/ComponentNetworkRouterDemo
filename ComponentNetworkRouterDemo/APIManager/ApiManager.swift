@@ -46,10 +46,9 @@ class ApiManager {
 extension ApiManager {
     func requestGithubSearchUser(text: String,
                                  page: Int,
-                                 completion: @escaping((Result<BaseResponse<[User]>,APIError>)->())) {
+                                 completion: @escaping((Result<BaseResponse<[User]>?,APIError>)->())) {
         let req = UserRequest(userName: text, page: page)
         router.send(req) { (result) in
-            print(result)
             switch result {
             case .success(let model):
                 completion(.success(model))

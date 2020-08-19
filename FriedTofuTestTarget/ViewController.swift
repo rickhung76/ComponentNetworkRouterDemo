@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         APIManager.shared.requestGithubSearchUser(text: "onevcat", page: 0) { (result) in
             switch result {
             case .success(let usersModel):
-                print(usersModel.items)
+                print(usersModel?.items)
             case .failure(let error):
                 print(error)
             }

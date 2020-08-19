@@ -17,7 +17,7 @@ class ViewController: UIViewController {
 
     @IBAction func btnPressed(_ sender: UIButton) {
         ApiManager.shared.requestGithubSearchUser(text: "cat", page: 0) { (result) in
-            
+            print(result)
         }
     }
     

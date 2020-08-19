@@ -17,7 +17,7 @@ class APIManager {
 
 extension APIManager {
     
-    func requestGithubSearchUser(text: String, page: Int, completion: @escaping((Result<BaseResponse<[User]>,APIError>)->())) {
+    func requestGithubSearchUser(text: String, page: Int, completion: @escaping((Result<BaseResponse<[User]>?,APIError>)->())) {
         let req = UserRequest(userName: text, page: 0)
         router.send(req) { (result) in
             switch result {
