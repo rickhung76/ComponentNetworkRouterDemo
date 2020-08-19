@@ -51,7 +51,7 @@ public enum DecisionAction<Req: Request> {
     case errored(APIError)
     /*** 該 Decision PASS，且為流程中最後一個邏輯單元，並傳出 Reponse 轉換出的 Data Model 返回 Router
      * 並結束這一系列流程 */
-    case done(Req.Response)
+    case done(Req.Response?)
 }
 
 public extension Array where Element == Decision {

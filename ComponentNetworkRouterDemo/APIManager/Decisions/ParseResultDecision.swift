@@ -15,7 +15,7 @@ public struct ParseResultDecision: Decision {
     public func shouldApply<Req: Request>(request: Req) -> Bool {
         return true
     }
-
+    
     public func apply<Req: Request>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
         guard let response = request.rawResponse else {
             let errRes = APIError(APIErrorCode.missingResponse.rawValue,
@@ -32,8 +32,12 @@ public struct ParseResultDecision: Decision {
         }
         
         do {
-            let value = try JSONDecoder().decode(Req.Response.self, from: data)
-            completion(.done(value))
+            if let httpResponse = response.response as? HTTPURLResponse, httpResponse.statusCode == 204 || httpResponse.statusCode == 205 {
+                completion(.done(nil))
+            } else {
+                let value = try JSONDecoder().decode(Req.Response.self, from: data)
+                completion(.done(value))
+            }
         } catch {
             let err = APIError(APIErrorCode.unableToDecode.rawValue,
                                APIErrorCode.unableToDecode.description)
