@@ -32,7 +32,7 @@ public struct ParseResultDecision: Decision {
         }
         
         do {
-            let value = try JSONDecoder().decode(Req.Response.self, from: data)
+            let value = try JSONDecoder().decodeIfPresent(Req.Response.self, from: data)
             completion(.done(value))
         } catch {
             let err = APIError(APIErrorCode.unableToDecode.rawValue,

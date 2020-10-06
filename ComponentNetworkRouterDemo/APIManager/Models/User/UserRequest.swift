@@ -10,7 +10,7 @@ import Foundation
 
 class UserRequest: Request {
     
-    typealias Response = BaseResponse<[User]>
+    typealias Response = BaseResponse<[User]>?
     
     var path: String {
         return "/search/users"
