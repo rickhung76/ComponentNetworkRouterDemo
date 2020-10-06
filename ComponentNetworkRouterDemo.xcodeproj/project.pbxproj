@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B0537AD2345CC220014F83E /* Encodable + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A62345CC220014F83E /* Encodable + Extention.swift */; };
+		2B0537AD2345CC220014F83E /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A62345CC220014F83E /* Encodable+Extension.swift */; };
 		2B0537AF2345CC280014F83E /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537AE2345CC280014F83E /* ApiManager.swift */; };
 		2B0A77A9235FFB4D000554CE /* BaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0A77A8235FFB4D000554CE /* BaseResponse.swift */; };
 		2B0A77AC235FFCCC000554CE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0A77AB235FFCCC000554CE /* User.swift */; };
@@ -25,7 +25,7 @@
 		2B0C5473237E88E500F99058 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB35C2338D20500770C1B /* APIError.swift */; };
 		2B0C5474237E88E500F99058 /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB33D2338CF2800770C1B /* APILogger.swift */; };
 		2B0C5475237E88E500F99058 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB33C2338CF2800770C1B /* Router.swift */; };
-		2B0C5476237E88EB00F99058 /* Encodable + Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A62345CC220014F83E /* Encodable + Extention.swift */; };
+		2B0C5476237E88EB00F99058 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0537A62345CC220014F83E /* Encodable+Extension.swift */; };
 		2B0C5477237E88EB00F99058 /* Decision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99DA234305F300E68B7F /* Decision.swift */; };
 		2B0C5478237E88EB00F99058 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB33B2338CF2800770C1B /* HTTPTask.swift */; };
 		2B0C547A237E88EB00F99058 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB3232338CF2800770C1B /* ParameterEncoding.swift */; };
@@ -137,7 +137,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2B0537A62345CC220014F83E /* Encodable + Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable + Extention.swift"; sourceTree = "<group>"; };
+		2B0537A62345CC220014F83E /* Encodable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
 		2B0537AE2345CC280014F83E /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		2B0A77A8235FFB4D000554CE /* BaseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponse.swift; sourceTree = "<group>"; };
 		2B0A77AB235FFCCC000554CE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -403,7 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				2B0B99DA234305F300E68B7F /* Decision.swift */,
-				2B0537A62345CC220014F83E /* Encodable + Extention.swift */,
+				2B0537A62345CC220014F83E /* Encodable+Extension.swift */,
 				2B6CB33B2338CF2800770C1B /* HTTPTask.swift */,
 				2B986D9A252C776C00F92A29 /* JSONDecoder+Extension.swift */,
 				2B6CB33A2338CF2800770C1B /* NetworkRouter.swift */,
@@ -671,7 +671,7 @@
 				2B252E8023826BB1008E0483 /* BadResponseStatusCodeDecision.swift in Sources */,
 				2B252E7D23826B5E008E0483 /* BuildRequestDecision.swift in Sources */,
 				2B0C5477237E88EB00F99058 /* Decision.swift in Sources */,
-				2B0C5476237E88EB00F99058 /* Encodable + Extention.swift in Sources */,
+				2B0C5476237E88EB00F99058 /* Encodable+Extension.swift in Sources */,
 				2B0C5478237E88EB00F99058 /* HTTPTask.swift in Sources */,
 				2B986D9C252C77D000F92A29 /* JSONDecoder+Extension.swift in Sources */,
 				2B0C547A237E88EB00F99058 /* ParameterEncoding.swift in Sources */,
@@ -750,7 +750,7 @@
 				2B0C54B9237EB4AC00F99058 /* BuildRequestDecision.swift in Sources */,
 				2B0B99DB234305F300E68B7F /* Decision.swift in Sources */,
 				2B6CB3612338DB4D00770C1B /* Decisions.swift in Sources */,
-				2B0537AD2345CC220014F83E /* Encodable + Extention.swift in Sources */,
+				2B0537AD2345CC220014F83E /* Encodable+Extension.swift in Sources */,
 				2B6CB3572338CF2800770C1B /* HTTPTask.swift in Sources */,
 				2B986D9B252C776C00F92A29 /* JSONDecoder+Extension.swift in Sources */,
 				2B6CB3562338CF2800770C1B /* NetworkRouter.swift in Sources */,

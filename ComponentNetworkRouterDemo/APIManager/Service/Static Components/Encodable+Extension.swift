@@ -1,5 +1,5 @@
 //
-//  Encodable + Extention.swift
+//  Encodable+Extension.swift
 //  ZXFast_iOS
 //
 //  Created by 黃柏叡 on 2019/10/3.
