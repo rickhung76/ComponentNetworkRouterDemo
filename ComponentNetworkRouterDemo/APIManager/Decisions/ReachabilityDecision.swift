@@ -9,10 +9,11 @@
 import Foundation
 
 public class ReachabilityDecision: Decision {
-    private let reachability: Reachability?
     
-    init(reachability: Reachability? = Network.reachability) {
-        self.reachability = reachability
+    init() {
+        if Network.reachability == nil {
+            Network.startDetection()
+        }
     }
     
     public func shouldApply<Req>(request: Req) -> Bool where Req : Request {
@@ -20,7 +21,7 @@ public class ReachabilityDecision: Decision {
     }
     
     public func apply<Req>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) where Req : Request {
-        if let reachability = self.reachability, reachability.isReachable {
+        if let reachability = Network.reachability, reachability.isReachable {
             completion(.continueWithRequst(request))
         } else {
             let errorCode = APIErrorCode.isNotReachability
