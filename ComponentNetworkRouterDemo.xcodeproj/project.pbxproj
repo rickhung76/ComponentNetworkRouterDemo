@@ -70,6 +70,20 @@
 		2B6CB3612338DB4D00770C1B /* Decisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB3602338DB4D00770C1B /* Decisions.swift */; };
 		2B986D9B252C776C00F92A29 /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986D9A252C776C00F92A29 /* JSONDecoder+Extension.swift */; };
 		2B986D9C252C77D000F92A29 /* JSONDecoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986D9A252C776C00F92A29 /* JSONDecoder+Extension.swift */; };
+		2B986DB9252DB76100F92A29 /* ProgressUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986DB8252DB76100F92A29 /* ProgressUpdatable.swift */; };
+		2B986DBA252DB76100F92A29 /* ProgressUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986DB8252DB76100F92A29 /* ProgressUpdatable.swift */; };
+		2B986DBC252DB91B00F92A29 /* Decisions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB3602338DB4D00770C1B /* Decisions.swift */; };
+		2B986DBD252DBA1400F92A29 /* RefreshTokenDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99E12343508400E68B7F /* RefreshTokenDecision.swift */; };
+		2B986DC1252DBA3F00F92A29 /* Swime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986DBF252DBA3F00F92A29 /* Swime.swift */; };
+		2B986DC2252DBA3F00F92A29 /* Swime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986DBF252DBA3F00F92A29 /* Swime.swift */; };
+		2B986DC3252DBA3F00F92A29 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986DC0252DBA3F00F92A29 /* MimeType.swift */; };
+		2B986DC4252DBA3F00F92A29 /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986DC0252DBA3F00F92A29 /* MimeType.swift */; };
+		2B986DC7252DC51E00F92A29 /* ReachabilityDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986DC6252DC51E00F92A29 /* ReachabilityDecision.swift */; };
+		2B986DC8252DC51E00F92A29 /* ReachabilityDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986DC6252DC51E00F92A29 /* ReachabilityDecision.swift */; };
+		2B986DCD252DC56E00F92A29 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986DCC252DC56E00F92A29 /* Reachability.swift */; };
+		2B986DCE252DC56E00F92A29 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986DCC252DC56E00F92A29 /* Reachability.swift */; };
+		2B986DD1252DC63700F92A29 /* GetedAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986DD0252DC63700F92A29 /* GetedAttachment.swift */; };
+		2B986DD2252DC63700F92A29 /* GetedAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B986DD0252DC63700F92A29 /* GetedAttachment.swift */; };
 		2BD1B1D523697EE3003C7215 /* RefreshTokenDecision.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B0B99E12343508400E68B7F /* RefreshTokenDecision.swift */; };
 		2BD1B1D823697F47003C7215 /* RefreshTokenDecisionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1B1D723697F47003C7215 /* RefreshTokenDecisionTests.swift */; };
 		2BD1B1DA23697F6C003C7215 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CB33F2338CF2800770C1B /* Request.swift */; };
@@ -190,6 +204,12 @@
 		2B6CB35C2338D20500770C1B /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		2B6CB3602338DB4D00770C1B /* Decisions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decisions.swift; sourceTree = "<group>"; };
 		2B986D9A252C776C00F92A29 /* JSONDecoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Extension.swift"; sourceTree = "<group>"; };
+		2B986DB8252DB76100F92A29 /* ProgressUpdatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressUpdatable.swift; sourceTree = "<group>"; };
+		2B986DBF252DBA3F00F92A29 /* Swime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swime.swift; sourceTree = "<group>"; };
+		2B986DC0252DBA3F00F92A29 /* MimeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
+		2B986DC6252DC51E00F92A29 /* ReachabilityDecision.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReachabilityDecision.swift; sourceTree = "<group>"; };
+		2B986DCC252DC56E00F92A29 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		2B986DD0252DC63700F92A29 /* GetedAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetedAttachment.swift; sourceTree = "<group>"; };
 		2BD1B1D723697F47003C7215 /* RefreshTokenDecisionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenDecisionTests.swift; sourceTree = "<group>"; };
 		2BD1B1E123699B67003C7215 /* UserRequestTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequestTest.swift; sourceTree = "<group>"; };
 		2BD1B1E523699C11003C7215 /* ApiManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerTests.swift; sourceTree = "<group>"; };
@@ -263,6 +283,7 @@
 				2B0C54B8237EB4AC00F99058 /* BuildRequestDecision.swift */,
 				2B6CB3602338DB4D00770C1B /* Decisions.swift */,
 				2B0B99DF2343419500E68B7F /* ParseResultDecision.swift */,
+				2B986DC6252DC51E00F92A29 /* ReachabilityDecision.swift */,
 				2B0B99E12343508400E68B7F /* RefreshTokenDecision.swift */,
 				2B0B99DD2343417F00E68B7F /* RetryDecision.swift */,
 				2B0C54BA237EBEDE00F99058 /* SendRequestDecision.swift */,
@@ -402,6 +423,7 @@
 		2B6CB3222338CF2800770C1B /* Static Components */ = {
 			isa = PBXGroup;
 			children = (
+				2B986DBE252DBA3F00F92A29 /* ThirdParty */,
 				2B0B99DA234305F300E68B7F /* Decision.swift */,
 				2B0537A62345CC220014F83E /* Encodable+Extension.swift */,
 				2B6CB33B2338CF2800770C1B /* HTTPTask.swift */,
@@ -419,9 +441,20 @@
 				2B6CB3222338CF2800770C1B /* Static Components */,
 				2B6CB35C2338D20500770C1B /* APIError.swift */,
 				2B6CB33D2338CF2800770C1B /* APILogger.swift */,
+				2B986DB8252DB76100F92A29 /* ProgressUpdatable.swift */,
 				2B6CB33C2338CF2800770C1B /* Router.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		2B986DBE252DBA3F00F92A29 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				2B986DCC252DC56E00F92A29 /* Reachability.swift */,
+				2B986DC0252DBA3F00F92A29 /* MimeType.swift */,
+				2B986DBF252DBA3F00F92A29 /* Swime.swift */,
+			);
+			path = ThirdParty;
 			sourceTree = "<group>";
 		};
 		2BD1B1D623697F22003C7215 /* Decsions */ = {
@@ -667,19 +700,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B0C5473237E88E500F99058 /* APIError.swift in Sources */,
+				2B986DD2252DC63700F92A29 /* GetedAttachment.swift in Sources */,
 				2B0C5474237E88E500F99058 /* APILogger.swift in Sources */,
 				2B252E8023826BB1008E0483 /* BadResponseStatusCodeDecision.swift in Sources */,
 				2B252E7D23826B5E008E0483 /* BuildRequestDecision.swift in Sources */,
 				2B0C5477237E88EB00F99058 /* Decision.swift in Sources */,
+				2B986DBC252DB91B00F92A29 /* Decisions.swift in Sources */,
 				2B0C5476237E88EB00F99058 /* Encodable+Extension.swift in Sources */,
 				2B0C5478237E88EB00F99058 /* HTTPTask.swift in Sources */,
 				2B986D9C252C77D000F92A29 /* JSONDecoder+Extension.swift in Sources */,
+				2B986DC4252DBA3F00F92A29 /* MimeType.swift in Sources */,
 				2B0C547A237E88EB00F99058 /* ParameterEncoding.swift in Sources */,
 				2B252E8123826BB9008E0483 /* ParseResultDecision.swift in Sources */,
+				2B986DC8252DC51E00F92A29 /* ReachabilityDecision.swift in Sources */,
+				2B986DBA252DB76100F92A29 /* ProgressUpdatable.swift in Sources */,
+				2B986DBD252DBA1400F92A29 /* RefreshTokenDecision.swift in Sources */,
 				2B0C547B237E88EB00F99058 /* Request.swift in Sources */,
 				2B252E7F23826B97008E0483 /* RetryDecision.swift in Sources */,
+				2B986DCE252DC56E00F92A29 /* Reachability.swift in Sources */,
 				2B0C5475237E88E500F99058 /* Router.swift in Sources */,
 				2B252E7E23826B84008E0483 /* SendRequestDecision.swift in Sources */,
+				2B986DC2252DBA3F00F92A29 /* Swime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,23 +786,29 @@
 				2B6CB3592338CF2800770C1B /* APILogger.swift in Sources */,
 				2B0537AF2345CC280014F83E /* ApiManager.swift in Sources */,
 				2B6CB30D2338C54E00770C1B /* AppDelegate.swift in Sources */,
+				2B986DC7252DC51E00F92A29 /* ReachabilityDecision.swift in Sources */,
 				2B0B99E4234354E600E68B7F /* BadResponseStatusCodeDecision.swift in Sources */,
 				2B0A77A9235FFB4D000554CE /* BaseResponse.swift in Sources */,
 				2B0C54B9237EB4AC00F99058 /* BuildRequestDecision.swift in Sources */,
+				2B986DCD252DC56E00F92A29 /* Reachability.swift in Sources */,
 				2B0B99DB234305F300E68B7F /* Decision.swift in Sources */,
 				2B6CB3612338DB4D00770C1B /* Decisions.swift in Sources */,
 				2B0537AD2345CC220014F83E /* Encodable+Extension.swift in Sources */,
 				2B6CB3572338CF2800770C1B /* HTTPTask.swift in Sources */,
+				2B986DD1252DC63700F92A29 /* GetedAttachment.swift in Sources */,
 				2B986D9B252C776C00F92A29 /* JSONDecoder+Extension.swift in Sources */,
+				2B986DC3252DBA3F00F92A29 /* MimeType.swift in Sources */,
 				2B6CB3562338CF2800770C1B /* NetworkRouter.swift in Sources */,
 				2B6CB3412338CF2800770C1B /* ParameterEncoding.swift in Sources */,
 				2B0B99E02343419500E68B7F /* ParseResultDecision.swift in Sources */,
+				2B986DB9252DB76100F92A29 /* ProgressUpdatable.swift in Sources */,
 				2B0B99E22343508400E68B7F /* RefreshTokenDecision.swift in Sources */,
 				2B6CB35B2338CF2800770C1B /* Request.swift in Sources */,
 				2B0B99DE2343417F00E68B7F /* RetryDecision.swift in Sources */,
 				2B6CB3582338CF2800770C1B /* Router.swift in Sources */,
 				2B6CB30F2338C54E00770C1B /* SceneDelegate.swift in Sources */,
 				2B0C54BB237EBEDE00F99058 /* SendRequestDecision.swift in Sources */,
+				2B986DC1252DBA3F00F92A29 /* Swime.swift in Sources */,
 				2B0A77AC235FFCCC000554CE /* User.swift in Sources */,
 				2B0A77AE235FFCF4000554CE /* UserRequest.swift in Sources */,
 				2B6CB3112338C54E00770C1B /* ViewController.swift in Sources */,

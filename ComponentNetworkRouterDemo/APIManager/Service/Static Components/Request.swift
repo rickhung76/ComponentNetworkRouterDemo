@@ -11,13 +11,17 @@ import Foundation
 fileprivate enum AssociatedKeys {
     static var formatRequest = "formatRequest"
     static var response = "response"
+    static var task = "task"
+    static var uuid = "uuid"
+    static var isValid = "isValid"
 }
 
-public protocol Request: class, EndPoint, DomainChangable {
+public protocol Request: class, EndPoint, DomainChangable, RequestUnique {
     
     /// Response model type
     associatedtype Response: Decodable
     
+    var isValid: Bool { get set }
     
     /// The URLRequest object, will be assigned by build request decision.
     /// - Give nil at initial state is fine.
@@ -27,11 +31,29 @@ public protocol Request: class, EndPoint, DomainChangable {
     /// The ResponseTuple object, will be assigned by send request decision.
     /// - Give nil at initial state is fine.
     var rawResponse: RawResponseTuple? { get set }
+    
+    /// The URLSessionTask object, will be assigned by send request decision.
+    /// - Give nil at initial state is fine.
+    var task: URLSessionTask? { get set }
+    
+    func cancel()
+    func suspend()
+    func resume()
 }
 
 public extension Request {
     
     var baseURL: String { return baseURL() }
+    
+    
+    var isValid: Bool {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.isValid) as? Bool ?? true
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.isValid, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
     
     var formatRequest: URLRequest? {
         get {
@@ -51,6 +73,15 @@ public extension Request {
         }
     }
     
+    var task: URLSessionTask? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.task) as? URLSessionTask
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.task, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+    
     func setFormatRequest(_ request: URLRequest) {
         self.formatRequest = request
     }
@@ -59,6 +90,37 @@ public extension Request {
         self.rawResponse = RawResponseTuple(data: data,
                                             response: response,
                                             error: error)
+    }
+    
+    func cancel() {
+        self.task?.cancel()
+        self.isValid = false
+    }
+    
+    func suspend() {
+        self.task?.suspend()
+    }
+    
+    func resume() {
+        self.task?.resume()
+    }
+}
+
+public protocol RequestUnique {
+    var uuid: String { get }
+}
+
+extension RequestUnique {
+    var uuid: String {
+        get {
+            if let id = objc_getAssociatedObject(self, &AssociatedKeys.uuid) as? String {
+                return id
+            } else {
+                let id = UUID().uuidString
+                objc_setAssociatedObject(self, &AssociatedKeys.uuid, id, .OBJC_ASSOCIATION_RETAIN)
+                return id
+            }
+        }
     }
 }
 

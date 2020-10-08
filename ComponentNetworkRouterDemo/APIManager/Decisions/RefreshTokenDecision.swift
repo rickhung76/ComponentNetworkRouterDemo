@@ -9,32 +9,33 @@
 import Foundation
 
 struct RefreshTokenDecision: Decision {
-    let apiClosure: (() -> Result<Bool, Error>)?
     
     func shouldApply<Req: Request>(request: Req) -> Bool  {
         guard let response = request.rawResponse,
             let httpUrlResponse = response.response as? HTTPURLResponse else {
             return true
         }
-        return httpUrlResponse.statusCode == 401
+        //TODO: 優化阻止 RefreshToken 重複觸發邏輯
+        return httpUrlResponse.statusCode == 401 //&& !ApiManager.shared.isReadyToRefreshToken
     }
     
     func apply<Req: Request>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {
-        //refresh token sucess implement
-        guard let apiClosure = apiClosure else {
-            let newDecisions = decisions.removing(self)
-            completion(.restartWith(request, newDecisions))
-            return
-        }
+        Decisions.normalQueue.suspend()
         
-        let apiClosureResult = apiClosure()
-        switch apiClosureResult {
-        case .success( _):
-            let newDecisions = decisions.removing(self)
-            completion(.restartWith(request, newDecisions))
-        case .failure( _):
-            let err = APIError(APIErrorCode.authenticationError)
-            completion(.errored(err))
-        }
+        //refresh token sucess implement
+        
+//        ApiManager.shared.refreshToken { (result) in
+//            switch result {
+//            case .success( _):
+//                var newDecisions = decisions
+//                newDecisions.insert(SendRequestDecision(isPriority: true), at: 0)
+//                newDecisions.insert(BuildRequestDecision(), at: 0)
+//                completion(.restartWith(request, newDecisions))
+//            case .failure(let error):
+//                completion(.errored(error))
+//            }
+//        }
+        Decisions.normalQueue.resume()
+        completion(.errored(APIError.init(.authenticationError)))
     }
 }

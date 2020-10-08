@@ -1,14 +1,15 @@
 //
-//  SendRequestDecision.swift
-//  ComponentNetworkRouterDemo
+//  UploadRequestDecision.swift
+//  ProjectSApp
 //
-//  Created by 黃柏叡 on 2019/11/15.
-//  Copyright © 2019 黃柏叡. All rights reserved.
+//  Created by 黃柏叡 on 2020/4/23.
+//  Copyright © 2020 Frank Chen. All rights reserved.
 //
 
 import Foundation
 
-public class SendRequestDecision: Decision, ProgressUpdatable {
+
+public class UploadRequestDecision: Decision, ProgressUpdatable {
     
     private let session = URLSession(configuration: URLSessionConfiguration.default)
     
@@ -39,18 +40,11 @@ public class SendRequestDecision: Decision, ProgressUpdatable {
             return
         }
         
-        guard request.isValid else {
-            let err = APIError(APIErrorCode.unknownError.rawValue,
-                               APIErrorCode.unknownError.description)
-            completion(.errored(err))
-            return
-        }
-        
-        let queue = isPriority ? Decisions.priorityQueue : Decisions.normalQueue
+        let queue = isPriority ? ApiManager.shared.priorityQueue : ApiManager.shared.normalQueue
         queue.async {
             var observation: NSKeyValueObservation?
             
-            let task = self.session.dataTask(with: formatRequest) { data, response, error in
+            let task = self.session.uploadTask(with: formatRequest, from: formatRequest.httpBody) { data, response, error in
                 request.setResponse(data, response: response, error: error)
                 completion(.continueWithRequst(request))
                 observation?.invalidate()
@@ -60,7 +54,6 @@ public class SendRequestDecision: Decision, ProgressUpdatable {
                 self?.delegate?.sessionTask(request, with: progress.fractionCompleted)
             })
             
-            request.task = task
             task.resume()
         }
     }

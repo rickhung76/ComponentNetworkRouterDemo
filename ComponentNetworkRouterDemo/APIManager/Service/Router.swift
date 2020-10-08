@@ -9,6 +9,10 @@
 import Foundation
 
 public class Router {
+    
+    public typealias UpdatePercentClosure = ((Double) -> Void)
+    
+    private var uploadClosureCluster: [String : UpdatePercentClosure] = [:]
 
     /// Router 執行節點，以 Decision 為單位執行
     private(set) var defultDecisions: [Decision]
@@ -31,13 +35,7 @@ public class Router {
     /// -       ParseResultDecision()
     /// -   ]
     public init() {
-        self.defultDecisions = [
-            BuildRequestDecision(),
-            SendRequestDecision(),
-            RetryDecision(retryCount: 3),
-            BadResponseStatusCodeDecision(),
-            ParseResultDecision()
-        ]
+        self.defultDecisions = Decisions.defaults
     }
     
     
@@ -53,12 +51,18 @@ public class Router {
     /// - Parameter request: The Struct confirms Request protocol
     /// - Parameter decisions: Decision path for the given request. It's optional.
     /// - Parameter completion: Completion handler
-    public func send<T: Request>(_ request: T, decisions: [Decision]? = nil, completion: @escaping (Result<T.Response, APIError>) -> Void) {
+    public func send<T: Request>(_ request: T, decisions: [Decision]? = nil, updateProgress: UpdatePercentClosure? = nil, completion: @escaping (Result<T.Response, APIError>) -> Void) {
+        
+        let decisions = decisions ?? defultDecisions
+        if let updateProgress = updateProgress,
+            let send = decisions.first(where: {$0 is ProgressUpdatable}) as? ProgressUpdatable {
+            send.delegate = self
+            uploadClosureCluster[request.uuid] = updateProgress
+        }
         
         self.handleDecision(request: request,
-                            decisions: decisions ?? defultDecisions,
+                            decisions: decisions,
                             handler: completion)
-
     }
     
     fileprivate func handleDecision<Req: Request>(request: Req, decisions: [Decision], handler: @escaping (Result<Req.Response, APIError>) -> Void) {
@@ -93,5 +97,12 @@ public class Router {
                 handler(.success(value))
             }
         }
+    }
+}
+
+extension Router: SessionTaskProgressDelegate {
+    func sessionTask(_ request: RequestUnique, with updateProgress: Double) {
+        guard let closure = uploadClosureCluster[request.uuid] else {return}
+        closure(updateProgress)
     }
 }

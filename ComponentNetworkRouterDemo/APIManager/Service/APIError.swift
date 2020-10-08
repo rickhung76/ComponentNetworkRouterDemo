@@ -21,6 +21,7 @@ public enum APIErrorCode: Int {
     case clientError = 49900
     case serverError = 50000
     case unknownError = 77777
+    case isNotReachability = 49901
     
     public var description: String {
         switch self {
@@ -48,6 +49,8 @@ public enum APIErrorCode: Int {
             return "Server Error"
         case .unknownError:
             return "Unknow Error"
+        case .isNotReachability:
+            return "没有网路连线"
         }
     }
 }

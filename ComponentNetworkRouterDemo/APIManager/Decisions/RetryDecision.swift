@@ -11,9 +11,11 @@ import Foundation
 public struct RetryDecision: Decision {
     
     let retryCount: Int
-    
-    public init(retryCount: Int) {
+    let isPriority: Bool
+
+    public init(retryCount: Int, isPriority: Bool = false) {
         self.retryCount = retryCount
+        self.isPriority = isPriority
     }
     
     public func shouldApply<Req>(request: Req) -> Bool where Req : Request {
@@ -32,11 +34,11 @@ public struct RetryDecision: Decision {
         
         request.setNextDomain()
         
-        let retryDecision = RetryDecision(retryCount: retryCount - 1)
+        let retryDecision = RetryDecision(retryCount: retryCount - 1, isPriority: isPriority)
         
         if retryCount > 0 {
             var newDecisions = decisions.inserting(retryDecision, at: 0)
-            newDecisions.insert(SendRequestDecision(), at: 0)
+            newDecisions.insert(SendRequestDecision(isPriority: isPriority), at: 0)
             newDecisions.insert(BuildRequestDecision(), at: 0)
             completion(.restartWith(request, newDecisions))
         } else {
@@ -70,9 +72,7 @@ public struct RetryDecision: Decision {
                 return
             }
             
-            errRes = APIError(APIErrorCode.unknownError.rawValue,
-                              APIErrorCode.unknownError.description)
-            completion(.errored(errRes))
+            completion(.continueWithRequst(request))
         }
     }
 }

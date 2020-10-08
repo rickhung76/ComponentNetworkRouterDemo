@@ -12,7 +12,7 @@ class APILogger {
     static func log(request: URLRequest) {
         
         print("\n - - - - - - - - - - OUTGOING - - - - - - - - - - \n")
-        defer { print("\n - - - - - - - - - -  END - - - - - - - - - - \n") }
+        defer { print("\n - - - - - - - - - - OUTGOING END - - - - - - - - - - \n") }
         
         let urlAsString = request.url?.absoluteString ?? ""
         let urlComponents = NSURLComponents(string: urlAsString)
@@ -33,5 +33,25 @@ class APILogger {
         print(logOutput)
     }
     
-    static func log(response: URLResponse) {}
+    static func log(response: HTTPURLResponse, data: Data? = nil) {
+        print("\n - - - - - - - - - - INCOMING - - - - - - - - - - \n")
+        defer { print("\n - - - - - - - - - - INCOMING END - - - - - - - - - - \n") }
+        print(response.url ?? "")
+        print(response.statusCode)
+        for (key, value) in response.allHeaderFields {
+            print("[\(key) : \(value)]")
+        }
+        if let data = data {
+            print("\nData:")
+            print(String(data: data, encoding: .utf8) ?? "cannot encode to UTF8 string")
+        }
+    }
+    
+    static func log(data: Data) {
+        print("\n - - - - - - - - - - INCOMING DATA - - - - - - - - - - \n")
+        defer { print("\n - - - - - - - - - - INCOMING DATA END - - - - - - - - - - \n") }
+        print("\nData:")
+        print(String(data: data, encoding: .utf8) ?? "cannot encode to UTF8 string")
+        
+    }
 }

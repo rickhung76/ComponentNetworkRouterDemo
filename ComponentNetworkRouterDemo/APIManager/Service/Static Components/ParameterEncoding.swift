@@ -29,6 +29,38 @@ struct FormBodyParameterEncoder: ParameterEncoder {
     }
 }
 
+struct FormDataParameterEncoder: ParameterEncoder {
+    
+    public func encode(urlRequest: inout URLRequest, with parameters: Parameters) {
+        let boundary = "\(UUID().uuidString)"
+        var httpBody = Data()
+        
+        urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        for (key, value) in parameters {
+            if let mediaData = value as? Data {
+                guard let type = Swime.mimeType(data: mediaData) else {continue}
+                httpBody.encodeWith(string: "--\(boundary)\r\n")
+                httpBody.encodeWith(string: "Content-Disposition: form-data; name=\"\(key)\"; filename=\"\(key).\(type.ext)\"\r\n")
+                httpBody.encodeWith(string: "Content-Type: \(type.mime)\r\n")
+                httpBody.encodeWith(string: "\r\n")
+                httpBody.append(mediaData)
+                httpBody.encodeWith(string: "\r\n")
+            }
+            else {
+                httpBody.encodeWith(string: "--\(boundary)\r\n")
+                httpBody.encodeWith(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n")
+                httpBody.encodeWith(string: "\r\n")
+                httpBody.encodeWith(string: "\(value)")
+                httpBody.encodeWith(string: "\r\n")
+            }
+        }
+        httpBody.encodeWith(string: "--\(boundary)--\r\n")
+        urlRequest.httpBody = httpBody
+    }
+}
+
+
 struct URLParameterEncoder: ParameterEncoder {
     
     public func encode(urlRequest: inout URLRequest, with parameters: Parameters) throws {
@@ -81,6 +113,7 @@ public enum ParameterEncoding {
     
     case urlEncoding
     case formBodyEncoding
+    case formDataEncoding
     case jsonEncoding
     case urlAndJsonEncoding
     
@@ -97,6 +130,10 @@ public enum ParameterEncoding {
                 guard let bodyParameters = bodyParameters else { return }
                 FormBodyParameterEncoder().encode(urlRequest: &urlRequest, with: bodyParameters)
                 
+            case .formDataEncoding:
+                guard let bodyParameters = bodyParameters else { return }
+                FormDataParameterEncoder().encode(urlRequest: &urlRequest, with: bodyParameters)
+                
             case .jsonEncoding:
                 guard let bodyParameters = bodyParameters else { return }
                 try JSONParameterEncoder().encode(urlRequest: &urlRequest, with: bodyParameters)
@@ -111,5 +148,12 @@ public enum ParameterEncoding {
         }catch {
             throw error
         }
+    }
+}
+
+extension Data {
+    mutating func encodeWith(string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
     }
 }

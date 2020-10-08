@@ -9,27 +9,36 @@
 import Foundation
 
 enum Decisions {
+    
+    static let normalQueue = DispatchQueue(label: "normalQueue")
+    static let priorityQueue = DispatchQueue(label: "priorityQueue",qos: .userInteractive)
         
     static let defaults: [Decision] =
         [
+            ReachabilityDecision(),
             BuildRequestDecision(),
             SendRequestDecision(),
             RetryDecision(retryCount: 3),
-            RefreshTokenDecision(apiClosure: nil),
+            RefreshTokenDecision(),
             BadResponseStatusCodeDecision(),
             ParseResultDecision()
         ]
+    
     
     static let refreshToken: [Decision] =
         [
-            RetryDecision(retryCount: 3),
+            ReachabilityDecision(),
+            BuildRequestDecision(),
+            SendRequestDecision(isPriority: true),
+            RetryDecision(retryCount: 3, isPriority: true),
             BadResponseStatusCodeDecision(),
             ParseResultDecision()
-        ]
+    ]
     
     static let errorHandler: [Decision] =
         [
-            RefreshTokenDecision(apiClosure: nil),
+            ReachabilityDecision(),
+            RefreshTokenDecision(),
             RetryDecision(retryCount: 3)
         ]
 }
