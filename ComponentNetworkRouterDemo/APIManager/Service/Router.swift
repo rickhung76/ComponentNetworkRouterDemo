@@ -35,7 +35,8 @@ public class Router {
     /// -       ParseResultDecision()
     /// -   ]
     public init() {
-        self.defultDecisions = Decisions.defaults
+        let session = URLSession(configuration: .default)
+        self.defultDecisions = Decisions.defaults(session: session)
     }
     
     

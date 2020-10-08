@@ -12,35 +12,29 @@ enum Decisions {
     
     static let normalQueue = DispatchQueue(label: "normalQueue")
     static let priorityQueue = DispatchQueue(label: "priorityQueue",qos: .userInteractive)
-        
-    static let defaults: [Decision] =
-        [
+    
+    static func defaults(session: URLSession) -> [Decision] {
+        return [
             ReachabilityDecision(),
             BuildRequestDecision(),
-            SendRequestDecision(),
-            RetryDecision(retryCount: 3),
+            SendRequestDecision(session: session),
+            RetryDecision(retryCount: 3, session: session),
             RefreshTokenDecision(),
             BadResponseStatusCodeDecision(),
             ParseResultDecision()
         ]
+    }
     
-    
-    static let refreshToken: [Decision] =
-        [
+    static func refreshToken(session: URLSession) -> [Decision] {
+        return [
             ReachabilityDecision(),
             BuildRequestDecision(),
-            SendRequestDecision(isPriority: true),
-            RetryDecision(retryCount: 3, isPriority: true),
+            SendRequestDecision(session: session, isPriority: true),
+            RetryDecision(retryCount: 3, session: session, isPriority: true),
             BadResponseStatusCodeDecision(),
             ParseResultDecision()
-    ]
-    
-    static let errorHandler: [Decision] =
-        [
-            ReachabilityDecision(),
-            RefreshTokenDecision(),
-            RetryDecision(retryCount: 3)
         ]
+    }
 }
 
 

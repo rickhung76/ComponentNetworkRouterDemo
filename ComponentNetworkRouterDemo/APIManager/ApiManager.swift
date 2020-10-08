@@ -10,7 +10,11 @@ import Foundation
 
 class ApiManager {
     static let shared = ApiManager()
-    let router = Router(with: Decisions.defaults)
+    lazy var router: Router = {
+        let session = URLSession(configuration: .default)
+        let decisions = Decisions.defaults(session: session)
+        return Router(with: decisions)
+    }()
     
     //TODO: 優化阻止 RefreshToken 重複觸發邏輯
     //var isReadyToRefreshToken = false

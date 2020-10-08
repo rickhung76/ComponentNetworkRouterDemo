@@ -10,16 +10,17 @@ import Foundation
 
 public class SendRequestDecision: Decision, ProgressUpdatable {
     
-    private let session = URLSession(configuration: URLSessionConfiguration.default)
-    
     weak var delegate: SessionTaskProgressDelegate?
+    
+    private let session: URLSession
     
     let isPriority: Bool
     /*
      SendRequestDecision
      將 Request 內的 formatRequest: URLRequest 傳入 URLSession 執行。
      */
-    init(isPriority: Bool = false) {
+    init(session: URLSession, isPriority: Bool = false) {
+        self.session = session
         self.isPriority = isPriority
     }
     

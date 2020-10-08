@@ -12,8 +12,10 @@ public struct RetryDecision: Decision {
     
     let retryCount: Int
     let isPriority: Bool
+    let session: URLSession
 
-    public init(retryCount: Int, isPriority: Bool = false) {
+    public init(retryCount: Int, session: URLSession, isPriority: Bool = false) {
+        self.session = session
         self.retryCount = retryCount
         self.isPriority = isPriority
     }
@@ -34,11 +36,12 @@ public struct RetryDecision: Decision {
         
         request.setNextDomain()
         
-        let retryDecision = RetryDecision(retryCount: retryCount - 1, isPriority: isPriority)
+        let retryDecision = RetryDecision(retryCount: retryCount - 1, session: session, isPriority: isPriority)
         
         if retryCount > 0 {
             var newDecisions = decisions.inserting(retryDecision, at: 0)
-            newDecisions.insert(SendRequestDecision(isPriority: isPriority), at: 0)
+            newDecisions.insert(SendRequestDecision(session: session,
+                                                    isPriority: isPriority), at: 0)
             newDecisions.insert(BuildRequestDecision(), at: 0)
             completion(.restartWith(request, newDecisions))
         } else {
