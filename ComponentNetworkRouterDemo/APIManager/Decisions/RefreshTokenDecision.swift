@@ -15,8 +15,8 @@ struct RefreshTokenDecision: Decision {
             let httpUrlResponse = response.response as? HTTPURLResponse else {
             return true
         }
-        //TODO: 優化阻止 RefreshToken 重複觸發邏輯
-        return httpUrlResponse.statusCode == 401 //&& !ApiManager.shared.isReadyToRefreshToken
+        
+        return httpUrlResponse.statusCode == 401
     }
     
     func apply<Req: Request>(request: Req, decisions: [Decision], completion: @escaping (DecisionAction<Req>) -> Void) {

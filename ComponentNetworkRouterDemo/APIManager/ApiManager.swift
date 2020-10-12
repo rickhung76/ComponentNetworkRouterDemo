@@ -16,9 +16,6 @@ class ApiManager {
         return Router(with: decisions)
     }()
     
-    //TODO: 優化阻止 RefreshToken 重複觸發邏輯
-    //var isReadyToRefreshToken = false
-    
 //    private func handleTokenError(_ msg: String) {
 //        DispatchQueue.main.async {
 //            //TODO: handleTokenError
