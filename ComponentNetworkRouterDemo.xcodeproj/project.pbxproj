@@ -422,11 +422,10 @@
 		2B6CB3222338CF2800770C1B /* Static Components */ = {
 			isa = PBXGroup;
 			children = (
+				2B986DE12534095C00F92A29 /* Helper */,
 				2B986DBE252DBA3F00F92A29 /* ThirdParty */,
 				2B0B99DA234305F300E68B7F /* Decision.swift */,
-				2B0537A62345CC220014F83E /* Encodable+Extension.swift */,
 				2B6CB33B2338CF2800770C1B /* HTTPTask.swift */,
-				2B986D9A252C776C00F92A29 /* JSONDecoder+Extension.swift */,
 				2B6CB33A2338CF2800770C1B /* NetworkRouter.swift */,
 				2B6CB3232338CF2800770C1B /* ParameterEncoding.swift */,
 				2B6CB33F2338CF2800770C1B /* Request.swift */,
@@ -462,6 +461,15 @@
 				2B986DD0252DC63700F92A29 /* GetedAttachment.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		2B986DE12534095C00F92A29 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				2B0537A62345CC220014F83E /* Encodable+Extension.swift */,
+				2B986D9A252C776C00F92A29 /* JSONDecoder+Extension.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		2BD1B1D623697F22003C7215 /* Decsions */ = {
